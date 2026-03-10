@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>6 Days 5 Nights Zanzibar Discovery Tour Package</title>
+    <meta name="description"
+        content="Discover the best of Zanzibar in this 6-day tour combining culture, nature, and relaxation.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Top Title Section */
+        .tour-header {
+            background-color: var(--beige);
+            padding: 40px 0 20px;
+        }
+
+        .tour-title-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+            /* Enforce text centering */
+        }
+
+        .tour-badge {
+            background-color: var(--yellow);
+            color: #3d1f17;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .tour-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.15;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        .tour-meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Properly centers the icons array */
+            flex-wrap: wrap;
+            gap: 24px;
+            border-top: 1px solid #e1d8cd;
+            padding-top: 25px;
+            margin-top: 25px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--anthracite);
+            font-weight: 600;
+        }
+
+        .meta-item i {
+            color: var(--green);
+            font-size: 1.2rem;
+        }
+
+        /* Hero Image Gallery (Mosiac) */
+        .tour-gallery {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 30px 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 240px 240px;
+            gap: 12px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: opacity 0.3s;
+        }
+
+        .gallery-img:hover {
+            opacity: 0.9;
+        }
+
+        .gallery-item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        .gallery-item-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .gallery-item-3 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .gallery-item-4 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 3;
+        }
+
+        @media(max-width: 900px) {
+            .tour-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 250px 200px;
+            }
+
+            .gallery-item-1 {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .gallery-item-2 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .gallery-item-3 {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+
+            .gallery-item-4 {
+                display: none;
+            }
+
+            .tour-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Layout Content */
+        .tour-content-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            /* Controls exact sidebar width rather than fractional stretching */
+            gap: 60px;
+        }
+
+        @media(max-width: 1024px) {
+            .tour-content-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Column */
+        .section-block {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid #eaeaea;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .block-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .block-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 30px;
+            background-color: var(--yellow);
+            border-radius: 2px;
+        }
+
+        .overview-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--anthracite);
+            font-weight: 500;
+        }
+
+        /* Itinerary Timeline */
+        .itinerary-list {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+
+        .itinerary-list::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 20px;
+            width: 2px;
+            background: #e1d8cd;
+            z-index: 1;
+        }
+
+        .iti-day {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 40px;
+        }
+
+        .iti-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -11px;
+            width: 24px;
+            height: 24px;
+            background-color: var(--white);
+            border: 5px solid var(--green);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .iti-day-header {
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .iti-day-label {
+            color: var(--green);
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .iti-day-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .iti-day-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .iti-day-acc {
+            background-color: var(--sand-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            border-left: 3px solid var(--brown);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .iti-acc-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .iti-acc-row i {
+            color: var(--green);
+            font-size: 1rem;
+            margin-top: 3px;
+            width: 18px;
+            text-align: center;
+        }
+
+        .iti-acc-content strong {
+            color: var(--dark);
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        /* Right Sticky Panel */
+        aside {
+            align-self: start;
+            position: sticky;
+            top: 120px;
+            /* Drops down just enough for floating headers */
+            z-index: 10;
+        }
+
+        .booking-widget {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+        }
+
+        .widget-header {
+            background: var(--green);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .widget-price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .widget-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .widget-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.8;
+            vertical-align: super;
+        }
+
+        .widget-body {
+            padding: 30px;
+        }
+
+        .incl-excl {
+            margin-bottom: 25px;
+        }
+
+        .incl-excl h4 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            font-weight: 900;
+            margin-bottom: 15px;
+            font-family: inherit;
+            /* Mixes in the heavier title weight natively */
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .incl-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .incl-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--anthracite);
+            font-weight: 500;
+            line-height: 1.35;
+            font-family: system-ui, -apple-system, sans-serif;
+            /* Mixing font style specifically here for high readability at small sizes */
+        }
+
+        .incl-list.includes li::before {
+            content: "\f00c";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #2ecc71;
+        }
+
+        .incl-list.excludes li::before {
+            content: "\f00d";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #e74c3c;
+        }
+
+        .btn-book-tour {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            background-color: var(--yellow);
+            color: #3d1f17;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-book-tour:hover {
+            background-color: var(--yellow-hover);
+        }
+
+        .widget-footer {
+            background: var(--sand-light);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .widget-footer a {
+            color: var(--green);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== MAIN HEADER / NAV ===== -->
+    <header class="main-header" id="mainHeader">
+        <nav class="container nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">PrimePath<br><strong>Tours & Safaris</strong></span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="index.html#excursions">Zanzibar Tours</a></li>
+                <li class="nav-item"><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" title="Wishlist"><i class="fas fa-heart"></i></button>
+                <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
+                <a href="#" class="btn-make-request">Make a request</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HEADER TITLES ===== -->
+    <div class="breadcrumb-bar" style="border-bottom: 1px solid #eaeaea;">
+        <div class="container">
+            <a href="index.html">Home</a> <span class="sep">›</span> <a href="index.html">Zanzibar holiday</a> <span
+                class="sep">›</span> <span class="current">6 Days Zanzibar Discovery</span>
+        </div>
+    </div>
+
+    <section class="tour-header">
+        <div class="tour-title-wrap">
+            <span class="tour-badge">Zanzibar Island</span>
+            <h1 class="tour-title">6 Days Safari Trip Tanzania Zanzibar</h1>
+
+            <div class="tour-meta-bar">
+                <div class="meta-item"><i class="far fa-clock"></i> 6 Days / 5 Nights</div>
+                <div class="meta-item"><i class="fas fa-map-marked-alt"></i> Stone Town & Beautiful Beaches</div>
+                <div class="meta-item"><i class="fas fa-swimmer"></i> Snorkeling & Turtle Experience</div>
+                <div class="meta-item"><i class="fas fa-globe-africa"></i> Private Tour</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MOSIAC GALLERY ===== -->
+    <section class="tour-gallery">
+        <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=1000&h=800&fit=crop"
+            alt="Pristine Zanzibar Beach" class="gallery-img gallery-item-1">
+        <img src="https://images.unsplash.com/photo-1605335804576-9d628d0db4d0?w=600&h=400&fit=crop"
+            alt="Stone Town Streets" class="gallery-img gallery-item-2">
+        <img src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=600&h=400&fit=crop"
+            alt="Swimming with Turtles" class="gallery-img gallery-item-3">
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=800&fit=crop"
+            alt="Dhow Sailing at Sunset" class="gallery-img gallery-item-4">
+    </section>
+
+    <!-- ===== TOUR CONTENT ===== -->
+    <section class="tour-content-wrap">
+        <div class="tour-main-column">
+
+            <!-- Context Block -->
+            <div class="section-block">
+                <h2 class="block-title">Trip Overview</h2>
+                <div class="overview-text">
+                    <p>Discover the best of Zanzibar in this 6-day tour combining culture, nature, and relaxation.
+                        Explore the historic streets of Stone Town, visit spice farms, and relax on beautiful beaches.
+                        Enjoy snorkeling at Mnemba Atoll, swim with turtles, and experience the island's vibrant local
+                        life. Perfect for those looking to explore, unwind, and enjoy the unique charm of the Spice
+                        Islands.</p>
+                </div>
+            </div>
+
+            <!-- Itinerary Block -->
+            <div class="section-block">
+                <h2 class="block-title">Itinerary</h2>
+
+                <div class="itinerary-list">
+
+                    <!-- Day 1 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 1</span>
+                            <h3 class="iti-day-title">Arrival in Zanzibar & Forodhani Gardens Night Market</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Welcome to Zanzibar! Upon arrival at Abeid Amani Karume International Airport, our
+                                professional driver will greet you and escort you to your hotel for check-in and
+                                relaxation. In the evening, immerse yourself in the vibrant energy of the Forodhani
+                                Gardens Night Market. Savor authentic Zanzibari street food like Zanzibar pizza, seafood
+                                skewers, and sugarcane juice while enjoying the lively local atmosphere.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
+                                        Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 2</span>
+                            <h3 class="iti-day-title">Spice Farm Tour, Stone Town Exploration & Nakupenda Sandbanks</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast, head to a local spice farm for a guided tour where you'll discover the
+                                origins of Zanzibar's nickname: the "Spice Island." Engage your senses with cloves,
+                                vanilla, nutmeg, and other exotic spices. Continue to historic Stone Town, a UNESCO
+                                World Heritage Site, where you'll explore winding alleys, ancient doors, and local
+                                markets. In the afternoon, take a boat ride to Nakupenda Sandbank for a relaxing beach
+                                escape with crystal-clear waters and snorkeling.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
+                                        Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 3</span>
+                            <h3 class="iti-day-title">Jozani Forest, Kuza Cave & Blue Lagoon</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Today begins with a guided walk through Jozani Forest, home to the rare Red Colobus
+                                Monkeys and rich tropical flora. Afterward, visit Kuza Cave, a hidden gem where you can
+                                swim in its clear, mineral-rich spring water and learn about Swahili culture at the
+                                small cultural center. Conclude your day at Blue Lagoon for a serene snorkeling
+                                experience among colorful corals and marine life.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
+                                        Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 4</span>
+                            <h3 class="iti-day-title">Mnemba Atoll, Turtle Swimming & Sunset Dhow Cruise</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Set out early for a full-day excursion to Mnemba Atoll, Zanzibar's premier snorkeling
+                                destination, where you'll swim in turquoise waters teeming with marine life. Later,
+                                visit the Nungwi Natural Aquarium to swim with and feed sea turtles in a safe, ethical
+                                environment. In the evening, unwind with a traditional dhow cruise as the sun sets over
+                                the Indian Ocean, accompanied by soft Swahili music and light refreshments.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Sunset Kendwa Hotel / Kendwa Rocks Hotel / Gold
+                                        Zanzibar Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 5</span>
+                            <h3 class="iti-day-title">Leisure Time & Cultural Village Tour</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Spend your morning at leisure—relax by the beach, enjoy your resort's amenities, or book
+                                an optional massage or water sport. In the afternoon, embark on a cultural village tour
+                                where you'll interact with locals, learn about traditional crafts, and gain deeper
+                                insights into everyday rural life in Zanzibar. This is a unique opportunity to
+                                experience the authentic soul of the island.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Sunset Kendwa Hotel / Kendwa Rocks Hotel / Gold
+                                        Zanzibar Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 6 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 6</span>
+                            <h3 class="iti-day-title">Departure & Last-Minute Stone Town Shopping</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast and hotel check-out, enjoy some free time for last-minute shopping in
+                                Stone Town's lively bazaars. Pick up souvenirs such as spices, handcrafted jewelry,
+                                fabrics, or wood carvings. Our driver will then transfer you to the airport for your
+                                departure flight, marking the end of your Zanzibar adventure with memories to last a
+                                lifetime.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sticky Sidebar -->
+        <aside>
+            <div class="booking-widget">
+                <div class="widget-header">
+                    <div class="widget-price-label">From</div>
+                    <div class="widget-price">$1,250<span>USD*</span></div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="incl-excl">
+                        <h4>Included</h4>
+                        <ul class="incl-list includes">
+                            <li>Airport transfers (arrival & departure)</li>
+                            <li>5 nights' accommodation</li>
+                            <li>All scheduled activities & excursions</li>
+                            <li>Local transportation</li>
+                            <li>Entrance fees to sites</li>
+                            <li>Professional local guide</li>
+                            <li>Drinking water during excursions</li>
+                        </ul>
+                    </div>
+
+                    <div class="incl-excl">
+                        <h4>Excluded</h4>
+                        <ul class="incl-list excludes">
+                            <li>International and domestic flights</li>
+                            <li>Travel insurance and visa fees</li>
+                            <li>Meals & drinks not specified</li>
+                            <li>Optional activities</li>
+                            <li>Personal expenses </li>
+                            <li>Gratuities</li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="btn-book-tour">Start Customizing</a>
+                </div>
+
+                <div class="widget-footer">
+                    No strings attached. <br>
+                    <a href="#">Receive a free quotation</a>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Footer Review Bar -->
+            <div class="footer-review-bar">
+                <p class="footer-review-title">Our customers recommend PrimePath Tours & Safaris</p>
+                <div class="footer-ratings">
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 4038+ reviews</span>
+                    </div>
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 952+ reviews</span>
+                    </div>
+                </div>
+                <a href="#" class="footer-read-more">Read more</a>
+            </div>
+
+            <div class="footer-main">
+                <div class="footer-col footer-col-brand">
+                    <img src="Primepathlogo.png" alt="PrimePath Tours & Safaris Original Logo" class="footer-full-logo">
+                    <h4 class="footer-brand-heading">Start Your Journey With Us</h4>
+                    <p class="footer-brand-desc">At Prime Path Tours and Safaris, we don't just offer trips - We create memories that last a lifetime.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>ITINERARIES</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Safari</a></li>
+                        <li><a href="#">Safari + Zanzibar</a></li>
+                        <li><a href="#">Zanzibar holiday</a></li>
+                        <li><a href="#">Kilimanjaro</a></li>
+                        <li><a href="#">Honeymoon Tanzania Zanzibar</a></li>
+                       
+                        <li><a href="#">View all sample itineraries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Travel Information</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Travel Advice</a></li>
+                     
+                        <li><a href="#">Tanzania weather</a></li>
+                        <li><a href="#">When to visit Tanzania?</a></li>
+                       
+                        <li><a href="#">Responsible Travel</a></li>
+                        <li><a href="#">Travelife Partner Status</a></li>
+                        <li><a href="#">View all frequently asked questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social media</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+               
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
+                        your inbox.</p>
+                    <div class="newsletter-wrap">
+                        <input type="email" placeholder="Your email address" class="newsletter-input">
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#">Terms and conditions</a>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p>© 2026 PrimePath Tours & Safaris</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>8-Day Tanzania Great Migration Safari</title>
+    <meta name="description"
+        content="Explore Tanzania's most spectacular wildlife destinations. Experience the Great Migration in the Serengeti and Ngorongoro Crater.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Top Title Section */
+        .tour-header {
+            background-color: var(--beige);
+            padding: 40px 0 20px;
+        }
+
+        .tour-title-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .tour-badge {
+            background-color: var(--yellow);
+            color: #3d1f17;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .tour-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.15;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        .tour-meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            border-top: 1px solid #e1d8cd;
+            padding-top: 25px;
+            margin-top: 25px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--anthracite);
+            font-weight: 600;
+        }
+
+        .meta-item i {
+            color: var(--green);
+            font-size: 1.2rem;
+        }
+
+        /* Hero Image Gallery (Mosiac) */
+        .tour-gallery {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 30px 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 240px 240px;
+            gap: 12px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: opacity 0.3s;
+        }
+
+        .gallery-img:hover {
+            opacity: 0.9;
+        }
+
+        .gallery-item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        .gallery-item-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .gallery-item-3 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .gallery-item-4 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 3;
+        }
+
+        @media(max-width: 900px) {
+            .tour-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 250px 200px;
+            }
+
+            .gallery-item-1 {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .gallery-item-2 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .gallery-item-3 {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+
+            .gallery-item-4 {
+                display: none;
+            }
+
+            .tour-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Layout Content */
+        .tour-content-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 60px;
+        }
+
+        @media(max-width: 1024px) {
+            .tour-content-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Column */
+        .section-block {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid #eaeaea;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .block-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .block-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 30px;
+            background-color: var(--yellow);
+            border-radius: 2px;
+        }
+
+        .overview-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--anthracite);
+            font-weight: 500;
+        }
+
+        /* Itinerary Timeline */
+        .itinerary-list {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+
+        .itinerary-list::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 20px;
+            width: 2px;
+            background: #e1d8cd;
+            z-index: 1;
+        }
+
+        .iti-day {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 40px;
+        }
+
+        .iti-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -11px;
+            width: 24px;
+            height: 24px;
+            background-color: var(--white);
+            border: 5px solid var(--green);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .iti-day-header {
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .iti-day-label {
+            color: var(--green);
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .iti-day-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .iti-day-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .iti-day-acc {
+            background-color: var(--sand-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            border-left: 3px solid var(--brown);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .iti-acc-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .iti-acc-row i {
+            color: var(--green);
+            font-size: 1rem;
+            margin-top: 3px;
+            width: 18px;
+            text-align: center;
+        }
+
+        .iti-acc-content strong {
+            color: var(--dark);
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        /* Right Sticky Panel */
+        aside {
+            align-self: start;
+            position: sticky;
+            top: 120px;
+            z-index: 10;
+        }
+
+        .booking-widget {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+        }
+
+        .widget-header {
+            background: var(--green);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .widget-price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .widget-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .widget-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.8;
+            vertical-align: super;
+        }
+
+        .widget-body {
+            padding: 30px;
+        }
+
+        .incl-excl {
+            margin-bottom: 25px;
+        }
+
+        .incl-excl h4 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            font-weight: 900;
+            margin-bottom: 15px;
+            font-family: inherit;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .incl-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .incl-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--anthracite);
+            font-weight: 500;
+            line-height: 1.35;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .incl-list.includes li::before {
+            content: "\f00c";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #2ecc71;
+        }
+
+        .incl-list.excludes li::before {
+            content: "\f00d";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #e74c3c;
+        }
+
+        .btn-book-tour {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            background-color: var(--yellow);
+            color: #3d1f17;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-book-tour:hover {
+            background-color: var(--yellow-hover);
+        }
+
+        .widget-footer {
+            background: var(--sand-light);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .widget-footer a {
+            color: var(--green);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== MAIN HEADER / NAV ===== -->
+    <header class="main-header" id="mainHeader">
+        <nav class="container nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">PrimePath<br><strong>Tours & Safaris</strong></span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="index.html#excursions">Zanzibar Tours</a></li>
+                <li class="nav-item"><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" title="Wishlist"><i class="fas fa-heart"></i></button>
+                <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
+                <a href="#" class="btn-make-request">Make a request</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HEADER TITLES ===== -->
+    <div class="breadcrumb-bar" style="border-bottom: 1px solid #eaeaea;">
+        <div class="container">
+            <a href="index.html">Home</a> <span class="sep">›</span> <a href="#">Tanzania Safaris</a> <span
+                class="sep">›</span> <span class="current">8-Day Great Migration Safari</span>
+        </div>
+    </div>
+
+    <section class="tour-header">
+        <div class="tour-title-wrap">
+            <span class="tour-badge">Tanzania Mainland</span>
+            <h1 class="tour-title">8-Day Tanzania Great Migration Safari</h1>
+
+            <div class="tour-meta-bar">
+                <div class="meta-item"><i class="far fa-clock"></i> 8 Days / 7 Nights</div>
+                <div class="meta-item"><i class="fas fa-map-marked-alt"></i> Tarangire & Serengeti</div>
+                <div class="meta-item"><i class="fas fa-binoculars"></i> Migration & Ngorongoro</div>
+                <div class="meta-item"><i class="fas fa-globe-africa"></i> Private Tour</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MOSIAC GALLERY ===== -->
+    <section class="tour-gallery">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1000&h=800&fit=crop"
+            alt="Elephants in Tarangire" class="gallery-img gallery-item-1">
+        <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?w=600&h=400&fit=crop"
+            alt="Great Migration Zebras" class="gallery-img gallery-item-2">
+        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&h=400&fit=crop"
+            alt="Lion in Serengeti" class="gallery-img gallery-item-3">
+        <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&h=800&fit=crop"
+            alt="Safari Landscape" class="gallery-img gallery-item-4">
+    </section>
+
+    <!-- ===== TOUR CONTENT ===== -->
+    <section class="tour-content-wrap">
+        <div class="tour-main-column">
+
+            <!-- Context Block -->
+            <div class="section-block">
+                <h2 class="block-title">Trip Overview</h2>
+                <div class="overview-text">
+                    <p>This 8-day safari invites you to explore Tanzania's most spectacular wildlife destinations. From
+                        the bustling gateway town of Arusha to the baobab-dotted plains of Tarangire, every stop is
+                        filled with adventure and discovery. The Serengeti takes center stage, offering the chance to
+                        witness the legendary Great Migration. The journey ends at the Ngorongoro Crater, home to an
+                        incredible variety of wildlife in a breathtaking natural amphitheater. With comfortable standard
+                        lodges and camps, this safari balances excitement and relaxation perfectly.</p>
+                </div>
+            </div>
+
+            <!-- Itinerary Block -->
+            <div class="section-block">
+                <h2 class="block-title">Itinerary</h2>
+
+                <div class="itinerary-list">
+
+                    <!-- Day 1 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 1</span>
+                            <h3 class="iti-day-title">Arrival in Arusha</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>When you land at Kilimanjaro International Airport, your driver-guide will be waiting
+                                with a warm welcome. A short transfer takes you to your lodge in Arusha, where you can
+                                relax after your flight and soak in the fresh mountain air. The town sits at the foot of
+                                Mount Meru and serves as the ideal starting point for safaris. Spend your first evening
+                                enjoying dinner and resting before the adventure begins. Tomorrow, the wild landscapes
+                                of Tanzania await you.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Standard Arusha Hotel / Airport Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Half Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 2</span>
+                            <h3 class="iti-day-title">Tarangire National Park</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast, you head out to Tarangire National Park, known for its giant baobab
+                                trees and huge herds of elephants. The park is alive with wildlife, from zebras and
+                                giraffes to predators such as lions and leopards. The Tarangire River flows through the
+                                park and draws animals year-round, making it a great spot for game viewing. You will
+                                spend the day exploring these beautiful landscapes, with picnic lunch in the wild. In
+                                the evening, settle at your lodge for dinner and a quiet night in nature.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Sangawire Tented Lodge / Maramboi Tented Lodge /
+                                        Tarangire Ndovu Tented Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Full Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 3</span>
+                            <h3 class="iti-day-title">Tarangire Game Drive & Walking Safari</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>This morning, enjoy a guided walking safari for a closer look at Tarangire's plants,
+                                tracks, and smaller creatures. Walking through the bush gives you a new perspective,
+                                different from the safari vehicle. After lunch, continue with an afternoon game drive to
+                                see elephants under baobabs and herds grazing across the plains. The golden light of
+                                evening makes this drive especially beautiful. Return to your lodge for dinner and
+                                stories around the fire.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Sangawire Tented Lodge / Maramboi Tented Lodge /
+                                        Tarangire Ndovu Tented Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Full Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 4</span>
+                            <h3 class="iti-day-title">Journey to the Serengeti</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast, begin the scenic drive towards the Serengeti, passing through the
+                                rolling hills of the Ngorongoro Conservation Area. As you enter the Serengeti, the
+                                endless plains open up before you, home to incredible numbers of wildlife. Keep your
+                                eyes open for giraffes, antelopes, and predators along the way. By afternoon, you'll
+                                reach your camp inside the park. After dinner, fall asleep to the distant roars of lions
+                                and the sounds of the wilderness.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Zawadi Serengeti Camp / Malaika Seronera Camp /
+                                        Nyota Luxury Camp
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Full Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 5</span>
+                            <h3 class="iti-day-title">Serengeti Safari - Following the Migration</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Spend the whole day exploring the Serengeti, focusing on the spectacular Great Migration
+                                if you're traveling in season. Depending on the time of year, you may see vast herds of
+                                wildebeest crossing rivers or calving in the southern plains. The drama of predator and
+                                prey is ever-present, with cheetahs, lions, and leopards always nearby. A picnic lunch
+                                keeps you in the middle of the action throughout the day. As evening falls, return to
+                                camp for dinner and rest.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Zawadi Serengeti Camp / Malaika Seronera Camp /
+                                        Nyota Luxury Camp
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Full Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 6 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 6</span>
+                            <h3 class="iti-day-title">Serengeti Game Drive or Balloon Safari</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>At sunrise, you may choose an optional hot air balloon safari to see the plains from
+                                above, or enjoy a traditional morning game drive. Either way, the Serengeti's beauty
+                                will take your breath away as the animals begin their day. After lunch, continue
+                                exploring different areas of the park, seeking out elephants, buffalo, and large prides
+                                of lions. Each drive reveals new surprises in this vast wilderness. Back at camp, enjoy
+                                dinner under the African night sky.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Zawadi Serengeti Camp / Malaika Seronera Camp /
+                                        Nyota Luxury Camp
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Full Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 7 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 7</span>
+                            <h3 class="iti-day-title">Ngorongoro Conservation Area</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Begin your day with a final Serengeti game drive before heading towards the Ngorongoro
+                                Conservation Area. The drive offers changing scenery, from wide plains to lush highlands
+                                filled with Maasai villages. Arrive at your lodge near the crater rim in the afternoon,
+                                where the views are truly unforgettable. Spend the evening relaxing and enjoying a
+                                hearty dinner. Rest well, as tomorrow you descend into one of the world's most
+                                remarkable wildlife sanctuaries.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Ngorongoro Marera Mt. View Lodge / Acacia Farm
+                                        Lodge / Ngorongoro Oldean Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Full Board
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 8 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 8</span>
+                            <h3 class="iti-day-title">Ngorongoro Crater & Departure</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Today you descend into the Ngorongoro Crater, a UNESCO World Heritage Site often called
+                                Africa's "Garden of Eden." The crater floor is home to lions, zebras, wildebeests,
+                                buffalo, and even the endangered black rhino. Enjoy a picnic lunch by a hippo pool as
+                                you take in the breathtaking scenery. After your game drive, ascend and drive back
+                                towards Arusha. In the late afternoon, transfer to Kilimanjaro Airport for your onward
+                                flight or continue with a Zanzibar beach extension.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sticky Sidebar -->
+        <aside>
+            <div class="booking-widget">
+                <div class="widget-header">
+                    <div class="widget-price-label">From</div>
+                    <div class="widget-price">$3,950<span>USD*</span></div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="incl-excl">
+                        <h4>Included</h4>
+                        <ul class="incl-list includes">
+                            <li>24/7 Customer Service assistance</li>
+                            <li>8-Day comprehensive fully-guided safari</li>
+                            <li>All selected accommodations</li>
+                            <li>Ngorongoro Crater Entrance Fees</li>
+                            <li>Guided game drives in private 4x4 safari jeep</li>
+                            <li>Professional English-Speaking Guide</li>
+                            <li>Full Board Meals during the safari</li>
+                            <li>Bottled drinking water in the jeep</li>
+                            <li>All national park entrance fees</li>
+                            <li>Airport pickup and drop-off transfers</li>
+                        </ul>
+                    </div>
+
+                    <div class="incl-excl">
+                        <h4>Excluded</h4>
+                        <ul class="incl-list excludes">
+                            <li>International Flights and Visas</li>
+                            <li>Travel Insurance</li>
+                            <li>Pre/Post Tour Accommodation</li>
+                            <li>Laundry services</li>
+                            <li>Hot Air Balloon Safari ($599 pp)</li>
+                            <li>Additional drinks & beverages</li>
+                            <li>Personal items (souvenirs, alcohol, cigarettes)</li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="btn-book-tour">Start Customizing</a>
+                </div>
+
+                <div class="widget-footer">
+                    No strings attached. <br>
+                    <a href="#">Receive a free quotation</a>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Footer Review Bar -->
+            <div class="footer-review-bar">
+                <p class="footer-review-title">Our customers recommend PrimePath Tours & Safaris</p>
+                <div class="footer-ratings">
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 4038+ reviews</span>
+                    </div>
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 952+ reviews</span>
+                    </div>
+                </div>
+                <a href="#" class="footer-read-more">Read more</a>
+            </div>
+
+            <div class="footer-main">
+                <div class="footer-col footer-col-brand">
+                    <img src="Primepathlogo.png" alt="PrimePath Tours & Safaris Original Logo" class="footer-full-logo">
+                    <h4 class="footer-brand-heading">Start Your Journey With Us</h4>
+                    <p class="footer-brand-desc">At Prime Path Tours and Safaris, we don't just offer trips - We create memories that last a lifetime.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>ITINERARIES</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Safari</a></li>
+                        <li><a href="#">Safari + Zanzibar</a></li>
+                        <li><a href="#">Zanzibar holiday</a></li>
+                        <li><a href="#">Kilimanjaro</a></li>
+                        <li><a href="#">Honeymoon Tanzania Zanzibar</a></li>
+                       
+                        <li><a href="#">View all sample itineraries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Travel Information</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Travel Advice</a></li>
+                     
+                        <li><a href="#">Tanzania weather</a></li>
+                        <li><a href="#">When to visit Tanzania?</a></li>
+                       
+                        <li><a href="#">Responsible Travel</a></li>
+                        <li><a href="#">Travelife Partner Status</a></li>
+                        <li><a href="#">View all frequently asked questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social media</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+               
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
+                        your inbox.</p>
+                    <div class="newsletter-wrap">
+                        <input type="email" placeholder="Your email address" class="newsletter-input">
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#">Terms and conditions</a>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p>© 2026 PrimePath Tours & Safaris</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

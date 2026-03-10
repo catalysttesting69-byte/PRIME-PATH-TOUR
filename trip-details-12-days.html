@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>12 Days Tanzania Safari & Zanzibar Beach Holiday Escape</title>
+    <meta name="description"
+        content="This romantic 12-day journey is designed for couples seeking both adventure and relaxation. Your safari begins in Tarangire, Lake Manyara, Serengeti, and Ngorongoro.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Top Title Section */
+        .tour-header {
+            background-color: var(--beige);
+            padding: 40px 0 20px;
+        }
+
+        .tour-title-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .tour-badge {
+            background-color: var(--yellow);
+            color: #3d1f17;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .tour-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.15;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+
+        .tour-meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            border-top: 1px solid #e1d8cd;
+            padding-top: 25px;
+            margin-top: 25px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--anthracite);
+            font-weight: 600;
+        }
+
+        .meta-item i {
+            color: var(--green);
+            font-size: 1.2rem;
+        }
+
+        /* Hero Image Gallery (Mosiac) */
+        .tour-gallery {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 30px 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 240px 240px;
+            gap: 12px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: opacity 0.3s;
+        }
+
+        .gallery-img:hover {
+            opacity: 0.9;
+        }
+
+        .gallery-item-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        .gallery-item-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .gallery-item-3 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .gallery-item-4 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 3;
+        }
+
+        @media(max-width: 900px) {
+            .tour-gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 250px 200px;
+            }
+
+            .gallery-item-1 {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .gallery-item-2 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .gallery-item-3 {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+
+            .gallery-item-4 {
+                display: none;
+            }
+
+            .tour-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Layout Content */
+        .tour-content-wrap {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 60px;
+        }
+
+        @media(max-width: 1024px) {
+            .tour-content-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Column */
+        .section-block {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            border: 1px solid #eaeaea;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .block-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .block-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 30px;
+            background-color: var(--yellow);
+            border-radius: 2px;
+        }
+
+        .overview-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--anthracite);
+            font-weight: 500;
+        }
+
+        /* Itinerary Timeline */
+        .itinerary-list {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+
+        .itinerary-list::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 20px;
+            left: 20px;
+            width: 2px;
+            background: #e1d8cd;
+            z-index: 1;
+        }
+
+        .iti-day {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 40px;
+        }
+
+        .iti-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -11px;
+            width: 24px;
+            height: 24px;
+            background-color: var(--white);
+            border: 5px solid var(--green);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .iti-day-header {
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .iti-day-label {
+            color: var(--green);
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .iti-day-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .iti-day-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .iti-day-acc {
+            background-color: var(--sand-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            border-left: 3px solid var(--brown);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .iti-acc-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .iti-acc-row i {
+            color: var(--green);
+            font-size: 1rem;
+            margin-top: 3px;
+            width: 18px;
+            text-align: center;
+        }
+
+        .iti-acc-content strong {
+            color: var(--dark);
+            font-weight: 700;
+            margin-right: 5px;
+        }
+
+        /* Right Sticky Panel */
+        aside {
+            align-self: start;
+            position: sticky;
+            top: 120px;
+            z-index: 10;
+        }
+
+        .booking-widget {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+        }
+
+        .widget-header {
+            background: var(--green);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .widget-price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .widget-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .widget-price span {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.8;
+            vertical-align: super;
+        }
+
+        .widget-body {
+            padding: 30px;
+        }
+
+        .incl-excl {
+            margin-bottom: 25px;
+        }
+
+        .incl-excl h4 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            font-weight: 900;
+            margin-bottom: 15px;
+            font-family: inherit;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .incl-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .incl-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--anthracite);
+            font-weight: 500;
+            line-height: 1.35;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .incl-list.includes li::before {
+            content: "\f00c";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #2ecc71;
+        }
+
+        .incl-list.excludes li::before {
+            content: "\f00d";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #e74c3c;
+        }
+
+        .btn-book-tour {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            background-color: var(--yellow);
+            color: #3d1f17;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-book-tour:hover {
+            background-color: var(--yellow-hover);
+        }
+
+        .widget-footer {
+            background: var(--sand-light);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .widget-footer a {
+            color: var(--green);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== MAIN HEADER / NAV ===== -->
+    <header class="main-header" id="mainHeader">
+        <nav class="container nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">PrimePath<br><strong>Tours & Safaris</strong></span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="index.html#excursions">Zanzibar Tours</a></li>
+                <li class="nav-item"><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" title="Wishlist"><i class="fas fa-heart"></i></button>
+                <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
+                <a href="#" class="btn-make-request">Make a request</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HEADER TITLES ===== -->
+    <div class="breadcrumb-bar" style="border-bottom: 1px solid #eaeaea;">
+        <div class="container">
+            <a href="index.html">Home</a> <span class="sep">›</span> <a href="#">Safari + Zanzibar</a> <span
+                class="sep">›</span> <span class="current">12 Days Safari & Beach Holiday</span>
+        </div>
+    </div>
+
+    <section class="tour-header">
+        <div class="tour-title-wrap">
+            <span class="tour-badge">Safari & Zanzibar</span>
+            <h1 class="tour-title">12 Days Tanzania Safari & Zanzibar Beach Holiday Escape</h1>
+
+            <div class="tour-meta-bar">
+                <div class="meta-item"><i class="far fa-clock"></i> 12 Days / 11 Nights</div>
+                <div class="meta-item"><i class="fas fa-map-marked-alt"></i> Serengeti & Zanzibar</div>
+                <div class="meta-item"><i class="fas fa-heart"></i> Romantic Honeymoon</div>
+                <div class="meta-item"><i class="fas fa-globe-africa"></i> Private Tour</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MOSIAC GALLERY ===== -->
+    <section class="tour-gallery">
+        <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&h=800&fit=crop"
+            alt="Relaxing Beach Resort" class="gallery-img gallery-item-1">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&h=400&fit=crop"
+            alt="Elephant Safari" class="gallery-img gallery-item-2">
+        <img src="https://images.unsplash.com/photo-1590523251416-242e8822d6de?w=600&h=400&fit=crop"
+            alt="Snorkeling Zanzibar" class="gallery-img gallery-item-3">
+        <img src="https://images.unsplash.com/photo-1493962853295-0fd70327578a?w=600&h=800&fit=crop" alt="Lion pride"
+            class="gallery-img gallery-item-4">
+    </section>
+
+    <!-- ===== TOUR CONTENT ===== -->
+    <section class="tour-content-wrap">
+        <div class="tour-main-column">
+
+            <!-- Context Block -->
+            <div class="section-block">
+                <h2 class="block-title">Trip Overview</h2>
+                <div class="overview-text">
+                    <p>This romantic 12-day journey is designed for couples seeking both adventure and relaxation. Your
+                        safari begins in Tarangire, Lake Manyara, Serengeti, and Ngorongoro—parks teeming with wildlife
+                        and breathtaking beauty. Days are filled with thrilling game drives, guided walks, and
+                        encounters with the Big Five. After the safari, fly to Zanzibar to unwind on its white-sand
+                        beaches and explore the cultural charm of Stone Town. With luxurious lodges, tented camps, and
+                        beachfront resorts, this itinerary blends wild adventure with pure serenity.</p>
+                </div>
+            </div>
+
+            <!-- Itinerary Block -->
+            <div class="section-block">
+                <h2 class="block-title">Itinerary</h2>
+
+                <div class="itinerary-list">
+
+                    <!-- Day 1 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 1</span>
+                            <h3 class="iti-day-title">Arrival in Arusha – A Warm Beginning</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Arrive at Kilimanjaro International Airport where your guide will greet you with a smile
+                                and warm Tanzanian hospitality. A scenic drive takes you to your lodge in Arusha,
+                                surrounded by lush gardens and views of Mount Meru. Take the evening to rest and enjoy
+                                the peaceful environment. This day is all about relaxation and preparation for the days
+                                ahead. Overnight stay in Arusha offers you the perfect soft start to your journey.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Pazur Inn Arusha / Forest Hill Hotel / Grand
+                                        Melia Arusha
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 2</span>
+                            <h3 class="iti-day-title">Tarangire National Park – Land of Giants</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Your safari adventure begins with a drive to Tarangire, a park known for its towering
+                                baobabs and impressive elephant herds. As you enter, expect to see zebras, wildebeests,
+                                giraffes, and perhaps even a lion lounging in the shade. A game drive along the
+                                Tarangire River reveals the park's vibrant ecosystem. In the evening, relax at your
+                                tented lodge, enjoying dinner under a starlit African sky. The wilderness sounds create
+                                a truly magical backdrop for your first safari night.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Sangaiwe Tented Lodge / Maramboi Tented Lodge /
+                                        Tarangire Ndovu Tented Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Breakfast, Lunch & Dinner
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 3</span>
+                            <h3 class="iti-day-title">Lake Manyara National Park – Beauty and Contrast</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast, continue to Lake Manyara, famous for its pink flamingos and
+                                tree-climbing lions. The park is a delightful mix of forests, grasslands, and wetlands,
+                                making it a haven for birds and diverse wildlife. You'll enjoy a game drive with chances
+                                to see elephants, buffalo, and hippos by the shimmering lake. Afterward, check into your
+                                lodge overlooking the Great Rift Valley for sweeping views. As the day ends, relax and
+                                savor the tranquil atmosphere of this unique destination.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Sangaiwe Tented Lodge / Maramboi Tented Lodge /
+                                        Tarangire Ndovu Tented Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Breakfast, Lunch & Dinner
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 4</span>
+                            <h3 class="iti-day-title">Journey to Serengeti – Endless Plains</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Today, travel through the Ngorongoro highlands before descending onto the legendary
+                                Serengeti plains. Along the way, you may spot Maasai herders with their cattle, adding a
+                                cultural touch to the journey. An afternoon game drive introduces you to the Serengeti's
+                                incredible wildlife, from grazing antelopes to prowling predators. As dusk falls, settle
+                                into your luxury tented camp in the heart of the savannah. Surrounded by nature, enjoy
+                                dinner while listening to the sounds of the wild.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Zawadi Serengeti Camp / Malaika Seronera Camp /
+                                        Nyota Luxury Camp
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Breakfast, Lunch & Dinner
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 5</span>
+                            <h3 class="iti-day-title">Full-Day Safari in Serengeti – The Wild Heart of Africa</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Rise early to catch the golden sunrise, the perfect moment to begin a full-day game
+                                drive. Traverse the vast plains in search of lions, leopards, cheetahs, and the great
+                                herds of wildebeest and zebras. Stop for a picnic lunch in the wilderness, taking in the
+                                panoramic beauty around you. The Serengeti offers countless moments of wonder and
+                                photography opportunities. End the day with dinner and stories around the campfire at
+                                your lodge.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Zawadi Serengeti Camp / Malaika Seronera Camp /
+                                        Nyota Luxury Camp
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Breakfast, Lunch & Dinner
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 6 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 6</span>
+                            <h3 class="iti-day-title">Ngorongoro Crater – Nature's Masterpiece</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast, bid farewell to Serengeti and make your way to Ngorongoro, a UNESCO
+                                World Heritage site. Descend into the crater for an unforgettable safari within its lush
+                                and diverse habitats. Here, you may spot rhinos grazing, lions stalking, and flamingos
+                                gathering at the lake. Pause for a picnic beside a hippo pool, surrounded by
+                                extraordinary scenery. Return to the crater rim in the evening for dinner with
+                                breathtaking views.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Farm of Dreams Lodge / Acacia Farm Lodge /
+                                        Ngorongoro Serena Lodge
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Breakfast, Lunch & Dinner
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 7 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 7</span>
+                            <h3 class="iti-day-title">Fly to Zanzibar – The Spice Island Awaits</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>This morning, board a flight to Zanzibar, where your beach adventure takes a romantic
+                                turn. Upon arrival, transfer to your elegant hotel in Stone Town, the island's historic
+                                heart. Spend the afternoon exploring narrow streets filled with markets, Swahili
+                                architecture, and vibrant history. As evening falls, enjoy ocean views. The day offers a
+                                seamless transition from wild safari to coastal charm.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Spice Palace Hotel / Tembo Hotel / Serena Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 8 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 8</span>
+                            <h3 class="iti-day-title">Spice Farm, Prison Island & Stone Town Tour</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After breakfast, head to a traditional spice plantation to discover Zanzibar's rich
+                                history of spices. Continue to Prison Island for giant tortoises and snorkeling
+                                opportunities. In the afternoon, explore the narrow alleys of Stone Town, filled with
+                                culture, architecture, and lively markets.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Spice Palace Hotel / Tembo Hotel / Serena Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 9 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 9</span>
+                            <h3 class="iti-day-title">Safari Blue Experience</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Embark on a full-day Safari Blue excursion, sailing on traditional dhows. Discover
+                                sandbanks, snorkel in coral reefs, and enjoy a seafood lunch on a private island. The
+                                turquoise waters and dolphin sightings make this one of Zanzibar's most unforgettable
+                                experiences. Return for a relaxed evening.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Spice Palace Hotel / Tembo Hotel / Serena Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 10 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 10</span>
+                            <h3 class="iti-day-title">Leisure in Zanzibar</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>A day at leisure to soak in the beauty of Zanzibar's beaches. Relax by the pool or
+                                indulge in optional activities such as snorkeling, diving, or visiting nearby villages.
+                                This day is designed for unwinding and personal exploration at your own pace. Overnight
+                                stay at the resort.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Spice Palace Hotel / Tembo Hotel / Serena Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 11 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 11</span>
+                            <h3 class="iti-day-title">Mnemba Atoll Snorkeling, Turtle Aquarium & Sunset Dhow Cruise</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>Get ready for an early trip to Mnemba Atoll, one of the top snorkeling spots in Zanzibar.
+                                Swim in clear waters and discover colorful fish and corals. There's also a chance to see
+                                turtles in their natural habitat. After snorkeling, relax on the nearby beach or return
+                                to your hotel for downtime. A laid-back evening to enjoy the beach vibes.</p>
+                            <div class="iti-day-acc">
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-bed"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Accommodation:</strong> Spice Palace Hotel / Tembo Hotel / Serena Hotel
+                                    </div>
+                                </div>
+                                <div class="iti-acc-row">
+                                    <i class="fas fa-utensils"></i>
+                                    <div class="iti-acc-content">
+                                        <strong>Meal Plan:</strong> Bed & Breakfast
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 12 -->
+                    <div class="iti-day">
+                        <div class="iti-day-header">
+                            <span class="iti-day-label">Day 12</span>
+                            <h3 class="iti-day-title">Departure – Farewell Tanzania & Zanzibar</h3>
+                        </div>
+                        <div class="iti-day-content">
+                            <p>After a relaxed breakfast overlooking the turquoise ocean, prepare for your onward
+                                journey. Depending on your flight time, you may enjoy a final swim or a stroll along the
+                                shore. Your driver will transfer you to Zanzibar International Airport for your
+                                departure. Though your honeymoon ends, the memories of safaris, sunsets, and seaside
+                                serenity will remain with you forever. Tanzania and Zanzibar will always hold a place in
+                                your hearts.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sticky Sidebar -->
+        <aside>
+            <div class="booking-widget">
+                <div class="widget-header">
+                    <div class="widget-price-label">From</div>
+                    <div class="widget-price">$5,250<span>USD*</span></div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="incl-excl">
+                        <h4>Included</h4>
+                        <ul class="incl-list includes">
+                            <li>24/7 Customer Service assistance</li>
+                            <li>12-Day comprehensive fully-guided safari</li>
+                            <li>All selected accommodations</li>
+                            <li>Ngorongoro Crater Entrance Fees</li>
+                            <li>Guided game drives in private 4x4 safari jeep</li>
+                            <li>Professional English-Speaking Guide</li>
+                            <li>Full Board Meals during the safari</li>
+                            <li>Bed and Breakfast for Zanzibar Hotels</li>
+                            <li>BBQ Lunch at Safari Blue tour</li>
+                            <li>Entry fees for Zanzibar Excursions</li>
+                            <li>Bottled drinking water in the jeep</li>
+                            <li>All national park entrance fees</li>
+                            <li>Airport pickup and drop-off transfers</li>
+                        </ul>
+                    </div>
+
+                    <div class="incl-excl">
+                        <h4>Excluded</h4>
+                        <ul class="incl-list excludes">
+                            <li>International Flights and Visas</li>
+                            <li>Travel Insurance</li>
+                            <li>Pre/Post Tour Accommodation</li>
+                            <li>Laundry services</li>
+                            <li>Hot Air Balloon Safari ($599 pp)</li>
+                            <li>Additional drinks & beverages</li>
+                            <li>Personal items (souvenirs, alcohol, cigarettes)</li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="btn-book-tour">Start Customizing</a>
+                </div>
+
+                <div class="widget-footer">
+                    No strings attached. <br>
+                    <a href="#">Receive a free quotation</a>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Footer Review Bar -->
+            <div class="footer-review-bar">
+                <p class="footer-review-title">Our customers recommend PrimePath Tours & Safaris</p>
+                <div class="footer-ratings">
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 4038+ reviews</span>
+                    </div>
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 952+ reviews</span>
+                    </div>
+                </div>
+                <a href="#" class="footer-read-more">Read more</a>
+            </div>
+
+            <div class="footer-main">
+                <div class="footer-col footer-col-brand">
+                    <img src="Primepathlogo.png" alt="PrimePath Tours & Safaris Original Logo" class="footer-full-logo">
+                    <h4 class="footer-brand-heading">Start Your Journey With Us</h4>
+                    <p class="footer-brand-desc">At Prime Path Tours and Safaris, we don't just offer trips - We create memories that last a lifetime.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>ITINERARIES</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Safari</a></li>
+                        <li><a href="#">Safari + Zanzibar</a></li>
+                        <li><a href="#">Zanzibar holiday</a></li>
+                        <li><a href="#">Kilimanjaro</a></li>
+                        <li><a href="#">Honeymoon Tanzania Zanzibar</a></li>
+                       
+                        <li><a href="#">View all sample itineraries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Travel Information</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Travel Advice</a></li>
+                     
+                        <li><a href="#">Tanzania weather</a></li>
+                        <li><a href="#">When to visit Tanzania?</a></li>
+                       
+                        <li><a href="#">Responsible Travel</a></li>
+                        <li><a href="#">Travelife Partner Status</a></li>
+                        <li><a href="#">View all frequently asked questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social media</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+               
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
+                        your inbox.</p>
+                    <div class="newsletter-wrap">
+                        <input type="email" placeholder="Your email address" class="newsletter-input">
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#">Terms and conditions</a>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p>© 2026 PrimePath Tours & Safaris</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

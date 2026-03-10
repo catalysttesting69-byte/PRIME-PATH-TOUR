@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zanzibar Vacation Packages - Book Now!</title>
+    <meta name="description"
+        content="Going on a Zanzibar holiday? Check out the most beautiful resorts, best vacation packages and the most exciting excursions.">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Prata&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ===== MAIN HEADER / NAV ===== -->
+    <header class="main-header" id="mainHeader">
+        <nav class="container nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="Primepathlogoround.png" alt="PrimePath Tours & Safaris" class="logo-img">
+                <span class="logo-text">PrimePath<br><strong>Tours & Safaris</strong></span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="#excursions">Zanzibar Tours</a></li>
+                <li class="nav-item"><a href="#">About Us</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon-btn" title="Wishlist"><i class="fas fa-heart"></i></button>
+                <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
+                <a href="#" class="btn-make-request">Make a request</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-new">
+        <div class="hero-image-wrapper">
+            <!-- Slideshow -->
+            <div class="hero-slide-track" id="heroSlideTrack">
+                <div class="hero-slide active"
+                    style="background-image:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&h=900&fit=crop')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image:url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=1600&h=900&fit=crop')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image:url('https://images.unsplash.com/photo-1549366021-9f761d450615?w=1600&h=900&fit=crop')">
+                </div>
+                <div class="hero-slide"
+                    style="background-image:url('https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=1600&h=900&fit=crop')">
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+
+            <!-- Left tagline -->
+            <div class="hero-left-content">
+                <span class="hero-eyebrow">Dar es Salaam, Tanzania</span>
+                <h1 class="hero-tagline-heading">Africa's Most<br>Extraordinary<br>Journey Awaits</h1>
+                <p class="hero-tagline-sub">Tailor-made safari &amp; beach experiences<br>crafted entirely around you.
+                </p>
+                <div class="hero-slide-dots" id="heroSlideDots">
+                    <button class="hero-dot active" data-slide="0"></button>
+                    <button class="hero-dot" data-slide="1"></button>
+                    <button class="hero-dot" data-slide="2"></button>
+                    <button class="hero-dot" data-slide="3"></button>
+                </div>
+            </div>
+
+            <!-- ===== REDESIGNED BOOKING CARD ===== -->
+            <div class="hero-booking-card">
+                <div class="hero-booking-content">
+                    <span class="hero-booking-badge"><i class="fas fa-magic"></i> Tailor-Made For You</span>
+                    <h2 class="hero-booking-title">Plan Your Dream Trip</h2>
+                    <p class="hero-booking-desc">Expert advice, zero commitment.</p>
+
+                    <form class="hero-booking-form" onsubmit="return false;">
+                        <div class="hero-field-group">
+                            <label><i class="fas fa-map-marker-alt"></i> Trip Type</label>
+                            <div class="hero-custom-select" id="heroTripTypeDropdown">
+                                <div class="hero-select-trigger" id="heroTripTypeTrigger">
+                                    <span id="heroTripTypeCurrent">Safari + Zanzibar</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <ul class="hero-select-options" id="heroTripTypeOptions">
+                                    <li class="active">Safari + Zanzibar</li>
+                                    <li>Safari Only</li>
+                                    <li>Zanzibar Beach</li>
+                                    <li>Kilimanjaro</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hero-field-row">
+                            <div class="hero-field-group">
+                                <label><i class="fas fa-user-friends"></i> Adults</label>
+                                <div class="hero-number-input">
+                                    <button type="button" class="num-btn minus" data-id="heroAdults">-</button>
+                                    <input type="number" id="heroAdults" value="2" min="1" class="hero-booking-input">
+                                    <button type="button" class="num-btn plus" data-id="heroAdults">+</button>
+                                </div>
+                            </div>
+                            <div class="hero-field-group">
+                                <label><i class="fas fa-child"></i> Kids</label>
+                                <div class="hero-number-input">
+                                    <button type="button" class="num-btn minus" data-id="heroChildren">-</button>
+                                    <input type="number" id="heroChildren" value="0" min="0" class="hero-booking-input">
+                                    <button type="button" class="num-btn plus" data-id="heroChildren">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-field-group">
+                            <label><i class="fas fa-calendar-alt"></i> Arrival Date</label>
+                            <div class="hero-date-picker">
+                                <input type="date" id="heroArrival" class="hero-booking-input hero-date-input">
+                                <i class="fas fa-calendar-alt hero-date-icon"></i>
+                            </div>
+                        </div>
+                        <button type="button" class="hero-submit-btn" id="heroFormSubmit">
+                            Craft My Itinerary <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Features strip floats at the bottom of the hero -->
+            <div class="hero-features-bar">
+                <div class="container">
+                    <ul class="features-bar-list">
+                        <li><i class="fas fa-check-circle"></i> 100% Tailor-made</li>
+                        <li><i class="fas fa-check-circle"></i> Local Experts</li>
+                        <li><i class="fas fa-check-circle"></i> Best Price Guarantee</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== FILTER SECTION ===== -->
+    <section class="filter-section">
+        <div class="container filter-inner">
+            <div class="type-filter-pills" id="typeFilterPills">
+                <button class="type-pill active" data-filter="all">All Trips <span
+                        class="pill-count">5</span></button>
+                <button class="type-pill" data-filter="zanzibar">Zanzibar <span class="pill-count">2</span></button>
+                <button class="type-pill" data-filter="safari">Safari <span class="pill-count">2</span></button>
+                <button class="type-pill" data-filter="combined">Safari + Beach <span
+                        class="pill-count">1</span></button>
+                <button class="type-pill" data-filter="excursions">Zanzibar Excursions</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRIP LISTINGS ===== -->
+    <section class="trips-section" id="tripsSection">
+        <div class="container" id="tripContainer">
+            <!-- JS renders trip cards -->
+        </div>
+        <p class="trips-empty-msg" id="tripsEmptyMsg"
+            style="display:none;text-align:center;color:var(--gray);padding:40px 0;">No trips found for this filter.
+            <button class="link-green" onclick="resetFilter()"
+                style="background:none;border:none;cursor:pointer;font:inherit;">View all trips</button>
+        </p>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <h2 class="section-heading text-center">How It Works</h2>
+            <p class="section-sub text-center">Planning your Tanzania adventure is simple</p>
+            <div class="hiw-grid">
+                <div class="hiw-step reveal">
+                    <div class="hiw-step-num">01</div>
+                    <div class="hiw-icon-wrap"><i class="fas fa-comments"></i></div>
+                    <h3 class="hiw-step-title">Tell Us Your Dream</h3>
+                    <p class="hiw-step-desc">Share your travel dates, budget, and interests. No commitment needed — just
+                        your vision.</p>
+                </div>
+                <div class="hiw-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="hiw-step reveal delay-1">
+                    <div class="hiw-step-num">02</div>
+                    <div class="hiw-icon-wrap"><i class="fas fa-route"></i></div>
+                    <h3 class="hiw-step-title">We Design Your Trip</h3>
+                    <p class="hiw-step-desc">Our local Tanzania experts craft a personalised itinerary tailored entirely
+                        around you — for free.</p>
+                </div>
+                <div class="hiw-arrow"><i class="fas fa-chevron-right"></i></div>
+                <div class="hiw-step reveal delay-2">
+                    <div class="hiw-step-num">03</div>
+                    <div class="hiw-icon-wrap"><i class="fas fa-plane-departure"></i></div>
+                    <h3 class="hiw-step-title">You Explore Africa</h3>
+                    <p class="hiw-step-desc">Sit back and enjoy your tailor-made adventure. We handle every detail from
+                        start to finish.</p>
+                </div>
+            </div>
+            <div class="hiw-cta">
+                <button class="btn-start-planning" data-open-enquiry>Start Planning My Trip</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTENT: ZANZIBAR INTRO ===== -->
+    <section class="content-section bg-beige">
+        <div class="container content-narrow">
+            <h2 class="section-heading">Zanzibar: Where Beach Honeymoon Meets Safari Adventure!</h2>
+            <div class="prose">
+                <p>Zanzibar might be one of the best beach honeymoon destinations of the world… beautiful white sandy
+                    beaches and coral reefs, comfortable accommodations, and transparent blue sea, like in the movies.
+                </p>
+                <p>And did you know? Zanzibar is located only 15 miles off the coast of Tanzania. Which means that you
+                    can quickly and easily fly to the Tanzanian mainland and go on an amazing wildlife safari, meet the
+                    Tanzanian population, discover their culture and see a lot of animals. This is your chance to meet
+                    the Big 5!</p>
+                <p><strong>Safari and beach holiday: is this your dream vacation?</strong></p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ===== ZANZIBAR VACATION + BEACHES ===== -->
+    <section class="content-section bg-white">
+        <div class="container">
+            <div class="two-col">
+                <div class="col">
+                    <h2 class="section-heading">Zanzibar vacation</h2>
+                    <div class="prose">
+                        <p>Imagine a dream holiday to the tropical island Zanzibar. This bounty island is a paradise,
+                            offering the world's most beautiful beaches and coral reefs. Miles and miles of white sandy
+                            beaches sprinkled with palm trees, surrounded by the clear azure waters of the Indian Ocean.
+                        </p>
+                        <p>Apart from laid-back beach life, Zanzibar also has a colorful culture and history. Stone Town
+                            is well worth a visit. This fascinating old city offers so many nice markets, restaurants
+                            and historical sightseeing's.</p>
+                        <p>Zanzibar Island is part of the Zanzibar archipelago, together with Pemba and Mafia and many
+                            smaller islands. These islands are also called the Spice Islands because of their rich
+                            history in the spice trade and many spice plantations. Great beach destinations to wash off
+                            the dust after your safari.</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <h2 class="section-heading">Zanzibar beaches</h2>
+                    <div class="prose">
+                        <p>Zanzibar offers the world's most beautiful beaches. Soft white sandy beaches surrounded by
+                            colourful coral reefs and the crystal clear waters of the Indian Ocean. Zanzibar island has
+                            about 25 beaches, sprinkled with fishing villages.</p>
+                        <p><strong>North:</strong> Nungwi and Kendwa are one of the most popular beaches since they do
+                            not have to deal with high and low tides. It has a chilled atmosphere with numbers of
+                            restaurants, bars and accommodation options.</p>
+                        <p><strong>East:</strong> Along the eastern coastline runs a beautiful coral reef, a top world
+                            spot for snorkelling and diving. You can immerse yourself in the abundance of marine life,
+                            such as sea horses, turtles and many tropical fish.</p>
+                        <p><strong>South-East:</strong> This part of the island is known for its long stretch of soft
+                            sandy beaches. It is the best spot for sailing or kite- and windsurfing, thanks to steady
+                            winds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXCURSIONS ===== -->
+    <section class="excursions-section" id="excursions">
+        <div class="container">
+            <h2 class="section-heading text-center">Unmissable Zanzibar Excursions</h2>
+            <p class="section-sub text-center">From historic city tours to pristine nature reserves, discover the best
+                activities the island has to offer.</p>
+            <div class="excursions-grid" id="excursionsGrid">
+                <!-- JS renders -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="why-us-inner">
+                <div class="why-us-left reveal">
+                    <span class="why-us-eyebrow">WHO WE ARE</span>
+                    <h2 class="section-heading">Start Your Journey<br>With Us</h2>
+                    <p class="why-us-desc">At Prime Path Tours and Safaris, we don't just offer trips — we create
+                        memories that last a lifetime. Choose us for a travel experience that is authentic, seamless,
+                        and built entirely around you.</p>
+                    <div class="why-us-contacts">
+                        <div class="why-us-contact-row"><i class="fas fa-map-marker-alt"></i><span>P.O. Box 20950, Dar
+                                es Salaam, Tanzania</span></div>
+                        <div class="why-us-contact-row"><i class="fas fa-phone-alt"></i><a href="tel:+255658805402">+255
+                                658 805 402</a></div>
+                    </div>
+                    <button class="btn-yellow" data-open-enquiry>Plan My Trip</button>
+                </div>
+                <div class="why-us-right">
+                    <div class="why-us-features">
+                        <div class="why-us-feat reveal">
+                            <div class="why-us-feat-icon"><i class="fas fa-user-tie"></i></div>
+                            <h4>Local Experts</h4>
+                            <p>Born in Tanzania, our guides know every trail, sunset spot, and hidden gem on the island.
+                            </p>
+                        </div>
+                        <div class="why-us-feat reveal delay-1">
+                            <div class="why-us-feat-icon"><i class="fas fa-drafting-compass"></i></div>
+                            <h4>100% Tailored</h4>
+                            <p>Every itinerary is custom-built for you — no cookie-cutter group tours, ever.</p>
+                        </div>
+                        <div class="why-us-feat reveal delay-2">
+                            <div class="why-us-feat-icon"><i class="fas fa-headset"></i></div>
+                            <h4>24/7 Support</h4>
+                            <p>From first enquiry to your last safari day, we're always just one message away.</p>
+                        </div>
+                        <div class="why-us-feat reveal delay-3">
+                            <div class="why-us-feat-icon"><i class="fas fa-leaf"></i></div>
+                            <h4>Authentic Africa</h4>
+                            <p>Real culture. Real wildlife. We connect you with Tanzania beyond the tourist trail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-heading text-center">Zanzibar holiday reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-quote">"Zanzibar is a fantastic, beautiful island. I stayed in the village
+                        Jambiani and the Zanzibari (local people) are so friendly and welcoming. They are always up for
+                        a chat. The beaches, spice farms, forests and little villages are so beautiful."
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">R</div>
+                        <div>
+                            <span class="review-name">Roos</span>
+                            <div class="review-location">via TripAdvisor</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-quote">"Zanzibar is a great beach destination you don't want to miss when you
+                        visit Tanzania. It is a paradise and the perfect place to end your safari. We stayed at the
+                        eastcoast of the island where you can find amazing beaches."
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">W</div>
+                        <div>
+                            <span class="review-name">Wouter</span>
+                            <div class="review-location">via TripAdvisor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="reviews-more">More reviews? Find all reviews on <a href="#" class="link-green">PrimePath
+                    Tripadvisor</a>!</p>
+        </div>
+    </section>
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <!-- Footer Review Bar -->
+            <div class="footer-review-bar">
+                <p class="footer-review-title">Our customers recommend PrimePath Tours & Safaris</p>
+                <div class="footer-ratings">
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 4038+ reviews</span>
+                    </div>
+                    <div class="footer-rating-item">
+                        <span class="stars-small">★★★★★</span>
+                        <span>Based on 952+ reviews</span>
+                    </div>
+                </div>
+                <a href="#" class="footer-read-more">Read more</a>
+            </div>
+
+            <div class="footer-main">
+                <div class="footer-col footer-col-brand">
+                    <img src="Primepathlogo.png" alt="PrimePath Tours & Safaris Original Logo" class="footer-full-logo">
+                    <h4 class="footer-brand-heading">Start Your Journey With Us</h4>
+                    <p class="footer-brand-desc">At Prime Path Tours and Safaris, we don't just offer trips - We create memories that last a lifetime.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>ITINERARIES</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Safari</a></li>
+                        <li><a href="#">Safari + Zanzibar</a></li>
+                        <li><a href="#">Zanzibar holiday</a></li>
+                        <li><a href="#">Kilimanjaro</a></li>
+                        <li><a href="#">Honeymoon Tanzania Zanzibar</a></li>
+                       
+                        <li><a href="#">View all sample itineraries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Travel Information</h4>
+                    <ul>
+                        <li><a href="#">Tanzania Travel Advice</a></li>
+                     
+                        <li><a href="#">Tanzania weather</a></li>
+                        <li><a href="#">When to visit Tanzania?</a></li>
+                       
+                        <li><a href="#">Responsible Travel</a></li>
+                        <li><a href="#">Travelife Partner Status</a></li>
+                        <li><a href="#">View all frequently asked questions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social media</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+               
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
+                        your inbox.</p>
+                    <div class="newsletter-wrap">
+                        <input type="email" placeholder="Your email address" class="newsletter-input">
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#">Terms and conditions</a>
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p>© 2026 PrimePath Tours & Safaris</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===== WHATSAPP BUTTON ===== -->
+    <a href="https://wa.me/255658805402?text=Hello%20PrimePath%20Tours%2C%20I'm%20interested%20in%20a%20Tanzania%20trip!"
+        class="floating-whatsapp" id="floatingWhatsApp" target="_blank" rel="noopener" title="Chat on WhatsApp"><i
+            class="fab fa-whatsapp"></i></a>
+
+    <!-- ===== ENQUIRY MODAL ===== -->
+    <div class="enquiry-modal" id="enquiryModal" role="dialog" aria-modal="true" aria-label="Trip Enquiry Form">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-box">
+            <button class="modal-close-btn" id="modalClose" aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <div class="modal-header-icon"><img src="Primepathlogoround.png" alt="Logo" class="modal-logo-img">
+                </div>
+                <h3>Plan Your Dream Trip</h3>
+                <p>Fill in the details and we'll craft a free, personalised itinerary within 24 hours.</p>
+            </div>
+            <form class="modal-form" id="enquiryForm" novalidate>
+                <div class="modal-row">
+                    <div class="modal-field">
+                        <label for="mName">Full Name *</label>
+                        <input type="text" id="mName" placeholder="Your full name" required>
+                    </div>
+                    <div class="modal-field">
+                        <label for="mEmail">Email *</label>
+                        <input type="email" id="mEmail" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="modal-row">
+                    <div class="modal-field">
+                        <label for="mTripType">Trip Type</label>
+                        <select id="mTripType">
+                            <option>Safari Only</option>
+                            <option>Zanzibar Beach</option>
+                            <option>Safari + Zanzibar</option>
+                            <option>Kilimanjaro</option>
+                            <option>Honeymoon Package</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-row">
+                    <div class="modal-field">
+                        <label for="mAdults">Adults</label>
+                        <div class="modal-number-input">
+                            <button type="button" class="num-btn-modal minus" data-id="mAdults">-</button>
+                            <input type="number" id="mAdults" value="2" min="1" class="modal-input">
+                            <button type="button" class="num-btn-modal plus" data-id="mAdults">+</button>
+                        </div>
+                    </div>
+                    <div class="modal-field">
+                        <label for="mChildren">Children</label>
+                        <div class="modal-number-input">
+                            <button type="button" class="num-btn-modal minus" data-id="mChildren">-</button>
+                            <input type="number" id="mChildren" value="0" min="0" class="modal-input">
+                            <button type="button" class="num-btn-modal plus" data-id="mChildren">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-field">
+                    <label for="mMessage">Tell us about your dream trip</label>
+                    <textarea id="mMessage" rows="3"
+                        placeholder="Any special requests, interests, or questions..."></textarea>
+                </div>
+                <button type="submit" class="modal-submit-btn">Send My Enquiry &rarr;</button>
+                <p class="modal-disclaimer">No strings attached &mdash; no cost, no commitment.</p>
+            </form>
+            <div class="modal-success" id="modalSuccess">
+                <div class="modal-success-icon"><i class="fas fa-check"></i></div>
+                <h3>Enquiry Sent!</h3>
+                <p>Thank you! We'll be in touch within 24 hours to start planning your dream Tanzania adventure.</p>
+                <a href="https://wa.me/255658805402" class="modal-wa-btn" target="_blank"><i
+                        class="fab fa-whatsapp"></i> Or chat instantly on WhatsApp</a>
+                <button class="modal-dismiss-btn" id="modalCloseSuccess">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
