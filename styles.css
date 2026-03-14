@@ -130,8 +130,12 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: var(--transition);
+    transition: transform 0.4s ease;
     border-bottom: none;
+}
+
+.main-header.navbar-hidden {
+    transform: translateY(-100%);
 }
 
 .nav-inner {
@@ -386,10 +390,10 @@ body {
     top: 100px;
     right: 40px;
     width: 380px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     padding: 30px;
     z-index: 50;
@@ -454,8 +458,8 @@ body {
 }
 
 .hero-booking-input {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     height: 46px;
     padding: 0 14px;
@@ -479,8 +483,8 @@ body {
 }
 
 .hero-select-trigger {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 10px;
     height: 46px;
     padding: 0 16px;
@@ -927,37 +931,6 @@ body {
 
 .trip-card:hover .trip-card-image img {
     transform: scale(1.08);
-}
-
-.trip-card-wishlist {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 36px;
-    height: 36px;
-    background: var(--white);
-    color: var(--anthracite);
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.trip-card-wishlist:hover {
-    background: var(--green);
-    color: var(--white);
-    transform: scale(1.1);
-}
-
-.trip-card-wishlist.active {
-    background: var(--red);
-    color: var(--white);
 }
 
 .trip-card-body {
@@ -2095,10 +2068,10 @@ body {
         top: 60px;
         right: 20px;
         width: 380px;
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(25px) saturate(180%);
         -webkit-backdrop-filter: blur(25px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 20px;
         padding: 28px;
         z-index: 50;
@@ -2133,8 +2106,8 @@ body {
 
     .hero-booking-input,
     .hero-select-trigger {
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 10px;
         height: 46px;
         padding: 0 14px;
@@ -2143,7 +2116,7 @@ body {
     }
 
     .hero-number-input {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.10);
         border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 10px;
         height: 46px;
@@ -2190,23 +2163,23 @@ body {
         margin-left: auto;
     }
 
-    /* Hide desktop nav links and convert to an off-canvas/fullscreen mobile overlay */
+    /* Hide desktop nav links and convert to an off-canvas mobile overlay */
     .nav-links {
         display: none;
         flex-direction: column;
         position: fixed;
         top: 0;
         right: 0;
-        left: auto;
         bottom: 0;
-        background: var(--sand);
-        padding: 70px 24px 24px;
-        z-index: 1004;
+        left: auto;
+        background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
+        padding: 80px 24px 40px;
+        z-index: 1000;
         overflow-y: auto;
         gap: 0;
-        animation: slideInRight 0.3s ease;
-        width: 80%;
-        max-width: 300px;
+        animation: slideInRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        width: 70%;
+        max-width: 320px;
     }
 
     @keyframes slideInRight {
@@ -2214,6 +2187,7 @@ body {
             transform: translateX(100%);
             opacity: 0;
         }
+
         to {
             transform: translateX(0);
             opacity: 1;
@@ -2226,38 +2200,79 @@ body {
 
     .nav-item a {
         display: block;
-        padding: 16px 0;
+        padding: 18px 20px;
         font-size: 16px;
         font-weight: 600;
-        color: var(--dark);
-        border-bottom: 1px solid rgba(70, 91, 45, 0.1);
-        transition: var(--transition);
+        color: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        transition: all 0.25s ease;
+        position: relative;
+    }
+
+    .nav-item a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: var(--yellow);
+        transform: scaleY(0);
+        transition: transform 0.25s ease;
     }
 
     .nav-item a:hover {
-        color: var(--green);
-        padding-left: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--yellow);
+        padding-left: 25px;
+    }
+
+    .nav-item a:hover::before {
+        transform: scaleY(1);
     }
 
     /* Make the mobile hamburger menu toggle visible in top right corner */
     .mobile-toggle {
         display: flex;
         position: fixed;
-        top: 20px;
-        right: 16px;
+        top: 18px;
+        right: 18px;
         z-index: 1010;
-        padding: 8px 6px;
-        background: rgba(70, 91, 45, 0.9);
+        padding: 10px;
+        background: var(--green);
         border: none;
         cursor: pointer;
         align-items: center;
-        gap: 5px;
-        border-radius: 8px;
-        transition: var(--transition);
+        justify-content: center;
+        gap: 6px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(70, 91, 45, 0.25);
     }
 
-    .mobile-toggle:hover .hamburger-line {
-        background: var(--yellow);
+    .mobile-toggle:hover {
+        background: var(--green-dark);
+    }
+
+    .hamburger-line {
+        width: 26px;
+        height: 3px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    .mobile-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     /* Compress the nav actions (search, heart, request) */
@@ -2368,12 +2383,12 @@ body {
         width: 90% !important;
         max-width: 420px !important;
         margin: 0 !important;
-        padding: 20px 16px !important;
+        padding: 24px 20px !important;
         border-radius: 16px !important;
-        background: rgba(255, 255, 255, 0.08) !important;
+        background: rgba(255, 255, 255, 0.05) !important;
         backdrop-filter: blur(25px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
         z-index: 50 !important;
     }
@@ -2520,12 +2535,12 @@ body {
         width: 95% !important;
         max-width: 340px !important;
         margin: 0 !important;
-        padding: 18px 14px !important;
+        padding: 20px 16px !important;
         border-radius: 14px !important;
-        background: rgba(255, 255, 255, 0.08) !important;
+        background: rgba(255, 255, 255, 0.05) !important;
         backdrop-filter: blur(25px) saturate(180%) !important;
         -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
         z-index: 50 !important;
     }
@@ -2539,46 +2554,46 @@ body {
     /* Booking card styling with white text for glassmorphic effect */
     .hero-booking-badge {
         display: inline-block;
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 800;
         background: var(--yellow);
         color: #2a1a0e;
-        padding: 3px 8px;
+        padding: 4px 10px;
         border-radius: 6px;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
         text-transform: uppercase;
         width: fit-content;
     }
 
     .hero-booking-title {
         color: var(--white);
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 900;
         line-height: 1.3;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
     }
 
     .hero-booking-desc {
         color: rgba(255, 255, 255, 0.85);
-        font-size: 12px;
-        margin-bottom: 12px;
+        font-size: 13px;
+        margin-bottom: 14px;
         font-weight: 400;
     }
 
     /* Adjust hero booking form for compact sizing */
     .hero-booking-form {
-        gap: 10px;
+        gap: 12px;
         margin-top: 0;
     }
 
     .hero-field-group {
-        gap: 4px;
+        gap: 5px;
     }
 
     .hero-field-group label {
-        font-size: 10px;
+        font-size: 11px;
         color: var(--yellow);
-        margin-bottom: 2px;
+        margin-bottom: 3px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.3px;
@@ -2586,7 +2601,7 @@ body {
 
     .hero-field-row {
         display: flex;
-        gap: 8px;
+        gap: 10px;
     }
 
     .hero-field-row .hero-field-group {
@@ -2613,11 +2628,11 @@ body {
 
     .hero-booking-input,
     .hero-select-trigger {
-        height: 40px;
-        font-size: 12px;
+        height: 42px;
+        font-size: 13px;
         padding: 0 12px;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         color: var(--white);
         border-radius: 8px;
     }
@@ -2633,15 +2648,15 @@ body {
     }
 
     .hero-number-input {
-        height: 40px;
+        height: 42px;
         gap: 0;
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 8px;
     }
 
     .num-btn {
-        width: 40px;
+        width: 42px;
         height: 100%;
         font-size: 12px;
         color: var(--white);
@@ -2654,11 +2669,11 @@ body {
     }
 
     .hero-submit-btn {
-        height: 42px;
-        font-size: 12px;
+        height: 44px;
+        font-size: 13px;
         padding: 0 16px;
-        margin-top: 8px;
-        gap: 6px;
+        margin-top: 10px;
+        gap: 8px;
         background: var(--yellow);
         color: #2a1a0e;
         border-radius: 8px;
@@ -2733,7 +2748,7 @@ body {
     .modal-box {
         max-width: 100%;
         width: 95%;
-        padding: 14px 12px;
+        padding: 16px 14px;
         max-height: 95vh;
         border-radius: 12px;
     }
@@ -2760,11 +2775,11 @@ body {
     }
 
     .modal-form {
-        gap: 9px;
+        gap: 12px;
     }
 
     .modal-row {
-        gap: 10px;
+        gap: 12px;
     }
 
     .modal-field label {
@@ -2774,8 +2789,8 @@ body {
     .modal-field input,
     .modal-field select,
     .modal-field textarea {
-        padding: 8px 10px;
-        font-size: 12px;
+        padding: 10px 12px;
+        font-size: 13px;
     }
 
     .modal-number-input {
@@ -2813,9 +2828,6 @@ body {
 
     .modal-dismiss-btn {
         font-size: 11px;
-    }
-}
-        font-size: 12px;
     }
 
     /* Tighten spacings on Review and CTA cards */
@@ -3579,6 +3591,295 @@ body {
     color: var(--white);
 }
 
+/* ===== SMARTPHONE OPTIMIZATIONS (480px) ===== */
+
+@media(max-width:480px) {
+
+    /* How It Works - Arrows Centered on Mobile */
+    .hiw-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+        margin-top: 40px;
+    }
+
+    .hiw-step {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        padding: 30px 20px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hiw-arrow {
+        padding-top: 0;
+        padding: 15px 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        color: var(--yellow);
+        font-size: 24px;
+        margin: 5px 0;
+    }
+
+    .hiw-arrow i {
+        display: inline-block;
+    }
+
+    .btn-start-planning {
+        display: inline-block;
+        padding: 14px 32px;
+        background: var(--green);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 14px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font);
+        transition: var(--transition);
+        letter-spacing: 0.4px;
+        box-shadow: 0 4px 20px rgba(70, 91, 45, 0.25);
+        margin-top: 30px;
+    }
+
+    /* ===== SMARTPHONE OPTIMIZATIONS (480px) ===== */
+
+    @media(max-width:480px) {
+
+        /* How It Works - Arrows Centered on Mobile */
+        .hiw-grid {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0;
+            margin-top: 40px;
+        }
+
+        .hiw-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .hiw-arrow {
+            padding-top: 0;
+            padding: 15px 0;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            color: var(--yellow);
+            font-size: 24px;
+            margin: 5px 0;
+        }
+
+        .hiw-arrow i {
+            display: inline-block;
+        }
+
+        .btn-start-planning {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--green);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font);
+            transition: var(--transition);
+            letter-spacing: 0.4px;
+            box-shadow: 0 4px 20px rgba(70, 91, 45, 0.25);
+            margin-top: 30px;
+        }
+
+        /* ===== BEAUTIFUL MOBILE DROP-DOWN NAV ===== */
+
+        .nav-links {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: auto;
+            /* Beautiful glassmorphism dropdown */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            flex-direction: column;
+            padding: 95px 30px 40px 30px;
+            gap: 0;
+            transform-origin: top;
+        }
+
+        .nav-links.open {
+            display: flex;
+            animation: dropDownMobileMenu 0.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes dropDownMobileMenu {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scaleY(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scaleY(1);
+            }
+        }
+
+        /* Backdrop overlay with blur */
+        body.menu-open::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            pointer-events: auto;
+            animation: fadeInBackdrop 0.4s ease forwards;
+        }
+
+        @keyframes fadeInBackdrop {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .nav-item {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 10px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 21px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-item a::after {
+            content: '\f105';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:active,
+        .nav-item a:hover {
+            background: transparent;
+            color: var(--yellow);
+            padding-left: 20px;
+            font-weight: 500;
+        }
+
+        .nav-item a:active::after,
+        .nav-item a:hover::after {
+            color: var(--yellow);
+            transform: translateX(5px);
+        }
+
+        .nav-item a::before {
+            display: none !important;
+        }
+
+        /* Elegant Minimalist Hamburger Button */
+        .mobile-toggle {
+            display: flex;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1010;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 10px;
+        }
+
+        .mobile-toggle:active,
+        .mobile-toggle:hover {
+            transform: scale(0.95);
+        }
+
+        .hamburger-line {
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .mobile-toggle.active .hamburger-line {
+            background: var(--yellow);
+        }
+
+        .mobile-toggle.active .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .mobile-toggle.active .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-actions {
+            margin-right: 64px;
+            /* spacing for floating hamburger */
+            gap: 14px;
+        }
+
+        /* Hide text-heavy 'Make a request' button to free up space, leaving only the cleanly spaced icons */
+        .btn-make-request {
+            display: none !important;
+        }
+    }
+}
+
 /* ===== RESPONSIVE — NEW SECTIONS ===== */
 @media (max-width: 899px) {
 
@@ -3622,6 +3923,13 @@ body {
     .modal-row-2,
     .modal-row-3 {
         grid-template-columns: 1fr;
+    }
+
+    /* Force children/adults to stay on the same row */
+    .modal-row.modal-row-split {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        /* Slightly tighter gap to fit well */
     }
 
     .modal-box {

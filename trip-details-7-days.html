@@ -6,436 +6,374 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>7 Days 6 Nights Zanzibar Discovery Experience</title>
     <meta name="description"
-        content="Discover the allure of Zanzibar where turquoise waters, powder-soft beaches, rich heritage, and authentic island culture combine to create an unforgettable escape.">
+        content="Discover the best of Zanzibar in this 7-day tour combining culture, nature, and relaxation.">
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Prata&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Top Title Section */
-        .tour-header {
-            background-color: var(--beige);
-            padding: 40px 0 20px;
+        :root {
+            --luxury-gold: #c5a059;
+            --luxury-dark: #1a1a1a;
+            --luxury-cream: #faf7f2;
+            --luxury-green: #2d5a27;
         }
 
-        .tour-title-wrap {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-            /* Enforce text centering */
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--white);
+            color: var(--luxury-dark);
         }
 
-        .tour-badge {
-            background-color: var(--yellow);
-            color: #3d1f17;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
+        h1,
+        h2,
+        h3,
+        .prata {
+            font-family: 'Prata', serif;
         }
 
-        .tour-title {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: var(--dark);
-            line-height: 1.15;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 30px;
-        }
-
-        .tour-meta-bar {
+        /* Hero Section - Immersive */
+        .hero-immersive {
+            height: 80vh;
+            min-height: 600px;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Properly centers the icons array */
-            flex-wrap: wrap;
-            gap: 24px;
-            border-top: 1px solid #e1d8cd;
-            padding-top: 25px;
-            margin-top: 25px;
+            color: var(--white);
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=1920&h=1080&fit=crop') center/cover no-repeat;
         }
 
-        .meta-item {
+        .hero-immersive::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--luxury-gold);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-            color: var(--anthracite);
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .hero-meta-item i {
+            color: var(--luxury-gold);
+        }
+
+        /* Sticky Navigation */
+        .tour-nav-sticky {
+            position: sticky;
+            top: 70px;
+            background: var(--white);
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .tour-nav-sticky a {
+            text-decoration: none;
+            color: var(--gray);
             font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        .meta-item i {
-            color: var(--green);
-            font-size: 1.2rem;
+        .tour-nav-sticky a:hover,
+        .tour-nav-sticky a.active {
+            color: var(--luxury-green);
         }
 
-        /* Hero Image Gallery (Mosiac) */
-        .tour-gallery {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 30px 20px 40px;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            grid-template-rows: 240px 240px;
-            gap: 12px;
-        }
-
-        .gallery-img {
+        .tour-nav-sticky a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: var(--radius-sm);
-            transition: opacity 0.3s;
+            height: 3px;
+            background: var(--luxury-gold);
         }
 
-        .gallery-img:hover {
-            opacity: 0.9;
-        }
-
-        .gallery-item-1 {
-            grid-column: 1 / 2;
-            grid-row: 1 / 3;
-        }
-
-        .gallery-item-2 {
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
-        }
-
-        .gallery-item-3 {
-            grid-column: 2 / 3;
-            grid-row: 2 / 3;
-        }
-
-        .gallery-item-4 {
-            grid-column: 3 / 4;
-            grid-row: 1 / 3;
-        }
-
-        @media(max-width: 900px) {
-            .tour-gallery {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 250px 200px;
-            }
-
-            .gallery-item-1 {
-                grid-column: 1 / 3;
-                grid-row: 1 / 2;
-            }
-
-            .gallery-item-2 {
-                grid-column: 1 / 2;
-                grid-row: 2 / 3;
-            }
-
-            .gallery-item-3 {
-                grid-column: 2 / 3;
-                grid-row: 2 / 3;
-            }
-
-            .gallery-item-4 {
-                display: none;
-            }
-
-            .tour-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Layout Content */
-        .tour-content-wrap {
+        /* Content Layout */
+        .tour-grid {
             max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 20px 80px;
+            margin: 60px auto;
+            padding: 0 20px;
             display: grid;
             grid-template-columns: 1fr 380px;
-            /* Controls exact sidebar width rather than fractional stretching */
             gap: 60px;
         }
 
-        @media(max-width: 1024px) {
-            .tour-content-wrap {
+        @media (max-width: 1024px) {
+            .tour-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Left Column */
-        .section-block {
-            background: var(--white);
-            padding: 40px;
-            border-radius: var(--radius-lg);
-            border: 1px solid #eaeaea;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow);
+        /* Left Content */
+        section {
+            padding-bottom: 80px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 80px;
         }
 
-        .block-title {
-            font-size: 1.8rem;
-            color: var(--dark);
-            margin-bottom: 25px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        section:last-child {
+            border-bottom: none;
         }
 
-        .block-title::before {
+        .sec-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--luxury-dark);
+            position: relative;
+        }
+
+        .sec-title::after {
             content: '';
             display: block;
-            width: 4px;
-            height: 30px;
-            background-color: var(--yellow);
-            border-radius: 2px;
+            width: 60px;
+            height: 4px;
+            background: var(--luxury-gold);
+            margin-top: 15px;
         }
 
-        .overview-text {
-            font-size: 1.05rem;
+        .overview-p {
+            font-size: 1.15rem;
             line-height: 1.8;
-            color: var(--anthracite);
-            font-weight: 500;
-        }
-
-        /* Itinerary Timeline */
-        .itinerary-list {
-            position: relative;
-            padding-left: 20px;
-            margin-top: 30px;
-        }
-
-        .itinerary-list::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            bottom: 20px;
-            left: 20px;
-            width: 2px;
-            background: #e1d8cd;
-            z-index: 1;
-        }
-
-        .iti-day {
-            position: relative;
-            margin-bottom: 40px;
-            padding-left: 40px;
-        }
-
-        .iti-day::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -11px;
-            width: 24px;
-            height: 24px;
-            background-color: var(--white);
-            border: 5px solid var(--green);
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .iti-day-header {
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        .iti-day-label {
-            color: var(--green);
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .iti-day-title {
-            font-size: 1.3rem;
-            color: var(--dark);
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .iti-day-content p {
-            font-size: 1rem;
-            line-height: 1.7;
             color: var(--gray);
-            margin-bottom: 20px;
-            font-weight: 500;
+            font-weight: 400;
         }
 
-        .iti-day-acc {
-            background-color: var(--sand-light);
-            padding: 20px;
-            border-radius: var(--radius);
-            font-size: 0.95rem;
-            border-left: 3px solid var(--brown);
+        /* Itinerary - Modern Visuals */
+        .modern-itinerary {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 30px;
         }
 
-        .iti-acc-row {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .iti-acc-row i {
-            color: var(--green);
-            font-size: 1rem;
-            margin-top: 3px;
-            width: 18px;
-            text-align: center;
-        }
-
-        .iti-acc-content strong {
-            color: var(--dark);
-            font-weight: 700;
-            margin-right: 5px;
-        }
-
-        /* Right Sticky Panel */
-        aside {
-            align-self: start;
-            position: sticky;
-            top: 120px;
-            /* Drops down just enough for floating headers */
-            z-index: 10;
-        }
-
-        .booking-widget {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
+        .iti-card {
+            background: var(--luxury-cream);
+            border-radius: 30px;
             overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 300px;
+            transition: transform 0.4s ease;
         }
 
-        .widget-header {
-            background: var(--green);
-            color: var(--white);
-            padding: 30px;
-            text-align: center;
+        .iti-card:hover {
+            transform: scale(1.01);
         }
 
-        .widget-price-label {
+        .iti-img {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .iti-card-body {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .iti-day-num {
+            color: var(--luxury-gold);
+            font-weight: 800;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.8;
-            margin-bottom: 5px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .widget-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1;
+        .iti-card-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--luxury-dark);
         }
 
-        .widget-price span {
+        .iti-card-desc {
             font-size: 1rem;
-            font-weight: 500;
-            opacity: 0.8;
-            vertical-align: super;
-        }
-
-        .widget-body {
-            padding: 30px;
-        }
-
-        .incl-excl {
+            line-height: 1.6;
+            color: var(--gray);
             margin-bottom: 25px;
         }
 
-        .incl-excl h4 {
-            font-size: 1.15rem;
-            color: var(--dark);
-            font-weight: 900;
-            margin-bottom: 15px;
-            font-family: inherit;
-            /* Mixes in the heavier title weight natively */
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 8px;
+        .iti-amenities {
+            display: flex;
+            gap: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 20px;
         }
 
-        .incl-list {
+        .iti-amenity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--luxury-green);
+        }
+
+        @media (max-width: 768px) {
+            .iti-card {
+                grid-template-columns: 1fr;
+            }
+
+            .iti-img {
+                height: 200px;
+            }
+        }
+
+        /* Sidebar - Elegant Widget */
+        .sticky-sidebar {
+            position: sticky;
+            top: 140px;
+        }
+
+        .luxury-booking-card {
+            background: var(--luxury-dark);
+            color: var(--white);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-price-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .card-price span {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-left: 10px;
+        }
+
+        .luxury-btn {
+            display: block;
+            width: 100%;
+            background: var(--luxury-gold);
+            color: var(--luxury-dark);
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .luxury-btn:hover {
+            background: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .feature-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .incl-list li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            color: var(--anthracite);
-            font-weight: 500;
-            line-height: 1.35;
-            font-family: system-ui, -apple-system, sans-serif;
-            /* Mixing font style specifically here for high readability at small sizes */
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
-        .incl-list.includes li::before {
-            content: "\f00c";
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 1px;
-            color: #2ecc71;
+        .feature-list li i {
+            color: var(--luxury-gold);
         }
 
-        .incl-list.excludes li::before {
-            content: "\f00d";
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 1px;
-            color: #e74c3c;
+        /* Gallery - Grid */
+        .masonry-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .btn-book-tour {
-            display: block;
+        .masonry-item {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .masonry-item img {
             width: 100%;
-            padding: 16px;
-            text-align: center;
-            background-color: var(--yellow);
-            color: #3d1f17;
-            text-decoration: none;
-            font-weight: 900;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .btn-book-tour:hover {
-            background-color: var(--yellow-hover);
+        .masonry-item:hover img {
+            transform: scale(1.1);
         }
 
-        .widget-footer {
-            background: var(--sand-light);
-            padding: 20px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--gray);
-            font-weight: 600;
-        }
-
-        .widget-footer a {
-            color: var(--green);
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .masonry-gallery {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
@@ -446,6 +384,7 @@
     <header class="main-header" id="mainHeader">
         <nav class="container nav-inner">
             <a href="index.html" class="nav-logo">
+                <img src="Primepathlogoround.png" alt="PrimePath Tours & Safaris" class="logo-img">
                 <span class="logo-text">PrimePath<br><strong>Tours & Safaris</strong></span>
             </a>
             <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
@@ -457,317 +396,230 @@
                 <li class="nav-item"><a href="index.html">Home</a></li>
                 <li class="nav-item"><a href="#">Safaris</a></li>
                 <li class="nav-item"><a href="index.html#excursions">Zanzibar Tours</a></li>
-                <li class="nav-item"><a href="#">About Us</a></li>
+                <li class="nav-item"><a href="about.html">About Us</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="nav-icon-btn" title="Wishlist"><i class="fas fa-heart"></i></button>
                 <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
                 <a href="#" class="btn-make-request">Make a request</a>
             </div>
         </nav>
     </header>
 
-    <!-- ===== HEADER TITLES ===== -->
-    <div class="breadcrumb-bar" style="border-bottom: 1px solid #eaeaea;">
-        <div class="container">
-            <a href="index.html">Home</a> <span class="sep">›</span> <a href="index.html">Zanzibar holiday</a> <span
-                class="sep">›</span> <span class="current">7 Days Zanzibar Discovery</span>
-        </div>
-    </div>
-
-    <section class="tour-header">
-        <div class="tour-title-wrap">
-            <span class="tour-badge">Zanzibar Island</span>
-            <h1 class="tour-title">7 Days 6 Nights Zanzibar Discovery Experience</h1>
-
-            <div class="tour-meta-bar">
-                <div class="meta-item"><i class="far fa-clock"></i> 7 Days / 6 Nights</div>
-                <div class="meta-item"><i class="fas fa-map-marked-alt"></i> Nakupenda & Safari Blue</div>
-                <div class="meta-item"><i class="fas fa-swimmer"></i> Spice Tour & The Rock</div>
-                <div class="meta-item"><i class="fas fa-globe-africa"></i> Private Tour</div>
+    <!-- ===== IMMERSIVE HERO ===== -->
+    <section class="hero-immersive">
+        <div class="hero-content">
+            <span class="hero-badge">Island Escape</span>
+            <h1 class="hero-title">7 Days 6 Nights Zanzibar Discovery Experience</h1>
+            <div class="hero-meta">
+                <div class="hero-meta-item"><i class="far fa-clock"></i> 7 Days / 6 Nights</div>
+                <div class="hero-meta-item"><i class="fas fa-map-marked-alt"></i> Nakupenda & Safari Blue</div>
+                <div class="hero-meta-item"><i class="fas fa-gem"></i> Private Tour</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== MOSIAC GALLERY ===== -->
-    <section class="tour-gallery">
-        <img src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=1000&h=800&fit=crop"
-            alt="Pristine Zanzibar Beach" class="gallery-img gallery-item-1">
-        <img src="https://images.unsplash.com/photo-1605335804576-9d628d0db4d0?w=600&h=400&fit=crop"
-            alt="Stone Town Streets" class="gallery-img gallery-item-2">
-        <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&h=400&fit=crop"
-            alt="Swimming with Turtles" class="gallery-img gallery-item-3">
-        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=800&fit=crop"
-            alt="Dhow Sailing at Sunset" class="gallery-img gallery-item-4">
-    </section>
+    <!-- ===== STICKY SECTION NAV ===== -->
+    <div class="tour-nav-sticky">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#details">Included</a>
+    </div>
 
-    <!-- ===== TOUR CONTENT ===== -->
-    <section class="tour-content-wrap">
+    <!-- ===== MAIN CONTENT GRID ===== -->
+    <main class="tour-grid">
         <div class="tour-main-column">
 
-            <!-- Context Block -->
-            <div class="section-block">
-                <h2 class="block-title">Trip Overview</h2>
-                <div class="overview-text">
+            <!-- OVERVIEW -->
+            <section id="overview">
+                <h2 class="sec-title">The Experience</h2>
+                <div class="overview-p">
                     <p>Discover the allure of Zanzibar where turquoise waters, powder-soft beaches, rich heritage, and
                         authentic island culture combine to create an unforgettable escape. Enjoy Prison Island,
                         Nakupenda Sandbank, The Rock Restaurant, and the breathtaking Safari Blue Tour in Menai Bay.</p>
                 </div>
-            </div>
+            </section>
 
-            <!-- Itinerary Block -->
-            <div class="section-block">
-                <h2 class="block-title">Itinerary</h2>
+            <!-- ITINERARY -->
+            <section id="itinerary">
+                <h2 class="sec-title">Day-by-Day Journey</h2>
+                <div class="modern-itinerary">
 
-                <div class="itinerary-list">
-
-                    <!-- Day 1 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 1</span>
-                            <h3 class="iti-day-title">Arrival in Zanzibar</h3>
+                    <!-- DAY 1 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1605335804576-9d628d0db4d0?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Upon arrival at Abeid Amani Karume International Airport, you will be warmly received by
-                                our representative and transferred to your accommodation on the tranquil East Coast.
-                                Along the way, enjoy glimpses of the historic character of Stone Town and everyday
-                                island life. After check-in, the remainder of the day is at leisure an ideal opportunity
-                                to relax and settle into your surroundings.</p>
-                            <div class="iti-day-acc">
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-bed"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
-                                        Hotel
-                                    </div>
-                                </div>
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-utensils"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Meal Plan:</strong> Bed & Breakfast
-                                    </div>
-                                </div>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 1</span>
+                            <h3 class="iti-card-title">Arrival in Zanzibar</h3>
+                            <p class="iti-card-desc">Transfer to your accommodation on the tranquil East Coast. Relax
+                                and settle into your surroundings.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-hotel"></i> Serena Hotel</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 2 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 2</span>
-                            <h3 class="iti-day-title">Prison Island & Nakupenda Sandbank Excursion</h3>
+                    <!-- DAY 2 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Embark on a guided boat excursion to Prison Island, once used as a detention site and now
-                                a historical landmark. The island is home to giant Aldabra tortoises and offers a
-                                peaceful natural setting for exploration. Continue to the breathtaking Nakupenda Beach,
-                                renowned for its crystal-clear waters and pristine white sands. Here, you will enjoy a
-                                freshly prepared seafood barbecue lunch, with time to swim, snorkel, or simply relax in
-                                this idyllic setting.</p>
-                            <div class="iti-day-acc">
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-bed"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
-                                        Hotel
-                                    </div>
-                                </div>
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-utensils"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Meal Plan:</strong> Bed & Breakfast
-                                    </div>
-                                </div>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 2</span>
+                            <h3 class="iti-card-title">Prison Island & Nakupenda Sandbank</h3>
+                            <p class="iti-card-desc">Visit historical Prison Island and enjoy a seafood BBQ on the
+                                pristine Nakupenda sandbank.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-hotel"></i> Serena Hotel</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 3 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 3</span>
-                            <h3 class="iti-day-title">Spice Tour, The Rock Restaurant & Sunset Horse Riding</h3>
+                    <!-- DAY 3 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1550064434-6c3e6dc27cc5?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Explore Zanzibar's reputation as the "Spice Island" with a guided visit to a local spice
-                                plantation. Engage your senses as you learn about the cultivation and uses of cloves,
-                                nutmeg, cinnamon, vanilla, and tropical fruits. You may also witness a traditional
-                                coconut tree climber demonstration and receive handcrafted souvenirs made from coconut
-                                leaves. Later, visit the iconic The Rock Restaurant, famously perched on a rock in the
-                                Indian Ocean and celebrated for its unique setting. In the evening, travel to Michamvi
-                                for a serene horseback ride along the shoreline at sunset, taking in panoramic ocean
-                                views and the calm coastal atmosphere.</p>
-                            <div class="iti-day-acc">
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-bed"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
-                                        Hotel
-                                    </div>
-                                </div>
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-utensils"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Meal Plan:</strong> Bed & Breakfast
-                                    </div>
-                                </div>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 3</span>
+                            <h3 class="iti-card-title">Spice Tour, The Rock & Horse Riding</h3>
+                            <p class="iti-card-desc">Explore spice plantations, visit the iconic Rock Restaurant, and
+                                ride horses along the shoreline at sunset.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-hotel"></i> Serena Hotel</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 4 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 4</span>
-                            <h3 class="iti-day-title">Time at leisure</h3>
+                    <!-- DAY 4 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Enjoy a full day at leisure to unwind at your beachfront property. Relax by the ocean,
-                                enjoy the hotel's facilities, or simply embrace the gentle rhythm of island life.</p>
-                            <div class="iti-day-acc">
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-bed"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
-                                        Hotel
-                                    </div>
-                                </div>
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-utensils"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Meal Plan:</strong> Bed & Breakfast
-                                    </div>
-                                </div>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 4</span>
+                            <h3 class="iti-card-title">Time at leisure</h3>
+                            <p class="iti-card-desc">Full day to unwind at your beachfront property. Relax by the ocean
+                                and embrace island life.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-hotel"></i> Serena Hotel</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 5 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 5</span>
-                            <h3 class="iti-day-title">Full-Day Safari Blue Experience</h3>
+                    <!-- DAY 5 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Experience one of Zanzibar's most celebrated excursions the Safari Blue Tour. Set sail on
-                                a traditional dhow to explore the Menai Bay Conservation Area, with opportunities for
-                                snorkelling, dolphin spotting, and swimming in a natural lagoon. Enjoy a sumptuous
-                                seafood BBQ lunch on a sandbank under shaded canopies. Spend the afternoon sailing
-                                between islands and soaking in the turquoise Indian Ocean before returning to shore.
-                                Evening at leisure.</p>
-                            <div class="iti-day-acc">
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-bed"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
-                                        Hotel
-                                    </div>
-                                </div>
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-utensils"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Meal Plan:</strong> Bed & Breakfast
-                                    </div>
-                                </div>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 5</span>
+                            <h3 class="iti-card-title">Full-Day Safari Blue Experience</h3>
+                            <h3 class="iti-card-title">Full-Day Safari Blue Experience</h3>
+                            <p class="iti-card-desc">Set sail on a traditional dhow to explore Menai Bay. Snorkeling,
+                                dolphin spotting, and seafood lunch.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-hotel"></i> Serena Hotel</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 6 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 6</span>
-                            <h3 class="iti-day-title">Optional Activities or Relaxation</h3>
+                    <!-- DAY 6 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1533036496924-4fbea4078dd2?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Today offers complete flexibility. You may choose to relax at your resort or participate
-                                in optional excursions such as quad biking, additional horse riding, or a guided visit
-                                to Jozani Chwaka Bay National Park, home to the rare Red Colobus monkeys. Alternative
-                                experiences include exploring freshwater caves or visiting Maasai cultural centers for
-                                deeper cultural insight.</p>
-                            <div class="iti-day-acc">
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-bed"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Accommodation:</strong> Antonio Garden Hotel / Marumaru Hotel / Serena
-                                        Hotel
-                                    </div>
-                                </div>
-                                <div class="iti-acc-row">
-                                    <i class="fas fa-utensils"></i>
-                                    <div class="iti-acc-content">
-                                        <strong>Meal Plan:</strong> Bed & Breakfast
-                                    </div>
-                                </div>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 6</span>
+                            <h3 class="iti-card-title">Optional Activities or Relaxation</h3>
+                            <p class="iti-card-desc">Flexibility to relax at your resort or participate in optional
+                                excursions like quad biking or Jozani Forest.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-hotel"></i> Serena Hotel</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Day 7 -->
-                    <div class="iti-day">
-                        <div class="iti-day-header">
-                            <span class="iti-day-label">Day 7</span>
-                            <h3 class="iti-day-title">Departure</h3>
+                    <!-- DAY 7 -->
+                    <div class="iti-card">
+                        <div class="iti-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?w=600&h=400&fit=crop');">
                         </div>
-                        <div class="iti-day-content">
-                            <p>Enjoy your final morning at leisure perhaps with a last walk along the beach or a relaxed
-                                breakfast overlooking the ocean. At the appropriate time, you will be transferred to the
-                                airport for your onward journey, concluding your Zanzibar holiday with lasting memories.
-                            </p>
+                        <div class="iti-card-body">
+                            <span class="iti-day-num">Day 7</span>
+                            <h3 class="iti-card-title">Departure</h3>
+                            <p class="iti-card-desc">Final morning at leisure before being transferred to the airport
+                                for your onward journey.</p>
+                            <div class="iti-amenities">
+                                <div class="iti-amenity"><i class="fas fa-plane-departure"></i> Transfer</div>
+                                <div class="iti-amenity"><i class="fas fa-utensils"></i> Breakfast</div>
+                            </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
+            </section>
+
+            <!-- GALLERY -->
+            <section id="gallery">
+                <h2 class="sec-title">Visual Journey</h2>
+                <div class="masonry-gallery">
+                    <div class="masonry-item"><img
+                            src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=600&h=800&fit=crop"
+                            alt="Beach"></div>
+                    <div class="masonry-item"><img
+                            src="https://images.unsplash.com/photo-1605335804576-9d628d0db4d0?w=600&h=400&fit=crop"
+                            alt="Stone Town"></div>
+                    <div class="masonry-item"><img
+                            src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&h=400&fit=crop"
+                            alt="Sandbank"></div>
+                    <div class="masonry-item"><img
+                            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=800&fit=crop"
+                            alt="Dhow"></div>
+                    <div class="masonry-item"><img
+                            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&h=400&fit=crop"
+                            alt="Resort"></div>
+                    <div class="masonry-item"><img
+                            src="https://images.unsplash.com/photo-1533036496924-4fbea4078dd2?w=600&h=800&fit=crop"
+                            alt="Equestrian"></div>
+                </div>
+            </section>
 
         </div>
 
-        <!-- Sticky Sidebar -->
+        <!-- RIGHT SIDEBAR -->
         <aside>
-            <div class="booking-widget">
-                <div class="widget-header">
-                    <div class="widget-price-label">From</div>
-                    <div class="widget-price">$1,450<span>USD*</span></div>
-                </div>
+            <div class="sticky-sidebar">
+                <div class="luxury-booking-card">
+                    <span class="card-price-label">Exclusive Rate</span>
+                    <strong class="card-price">$1,450<span>p.p.</span></strong>
+                    <a href="#" class="luxury-btn">Plan This Journey</a>
 
-                <div class="widget-body">
-                    <div class="incl-excl">
-                        <h4>Included</h4>
-                        <ul class="incl-list includes">
-                            <li>Airport meet-and-greet assistance and round-trip transfers</li>
-                            <li>Accommodation as specified in the itinerary</li>
-                            <li>All scheduled tours and excursions</li>
-                            <li>Private air-conditioned vehicle for transfers and activities</li>
-                            <li>Professional English-speaking guide</li>
-                            <li>Snorkeling equipment where applicable</li>
-                            <li>Seafood barbecue lunch during the Nakupenda excursion</li>
-                            <li>Bottled drinking water during tours</li>
-                            <li>All applicable government taxes and service charges</li>
-                        </ul>
+                    <h4 style="margin-bottom: 20px; color: var(--luxury-gold);">What's Included</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> VIP Airport Transfers</li>
+                        <li><i class="fas fa-check"></i> Premium Boutique Stays</li>
+                        <li><i class="fas fa-check"></i> All Guided Excursions</li>
+                        <li><i class="fas fa-check"></i> Private Transportation</li>
+                        <li><i class="fas fa-check"></i> Professional English Guide</li>
+                        <li><i class="fas fa-check"></i> Seafood BBQ Lunch</li>
+                    </ul>
+
+                    <div style="margin-top: 40px; font-size: 0.85rem; opacity: 0.6; text-align: center;">
+                        Free cancellation up to 30 days before arrival.
                     </div>
-
-                    <div class="incl-excl">
-                        <h4>Excluded</h4>
-                        <ul class="incl-list excludes">
-                            <li>International airfare</li>
-                            <li>Visa fees and travel insurance</li>
-                            <li>Optional activities not specified in the itinerary</li>
-                            <li>Alcoholic beverages</li>
-                            <li>Personal expenses (e.g., gratuities, laundry, shopping)</li>
-                            <li>Any services not expressly listed under "Inclusions"</li>
-                        </ul>
-                    </div>
-
-                    <a href="#" class="btn-book-tour">Start Customizing</a>
-                </div>
-
-                <div class="widget-footer">
-                    No strings attached. <br>
-                    <a href="#">Receive a free quotation</a>
                 </div>
             </div>
         </aside>
-    </section>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
@@ -792,7 +644,8 @@
                 <div class="footer-col footer-col-brand">
                     <img src="Primepathlogo.png" alt="PrimePath Tours & Safaris Original Logo" class="footer-full-logo">
                     <h4 class="footer-brand-heading">Start Your Journey With Us</h4>
-                    <p class="footer-brand-desc">At Prime Path Tours and Safaris, we don't just offer trips - We create memories that last a lifetime.</p>
+                    <p class="footer-brand-desc">At Prime Path Tours and Safaris, we don't just offer trips - We create
+                        memories that last a lifetime.</p>
                 </div>
                 <div class="footer-col">
                     <h4>ITINERARIES</h4>
@@ -802,7 +655,7 @@
                         <li><a href="#">Zanzibar holiday</a></li>
                         <li><a href="#">Kilimanjaro</a></li>
                         <li><a href="#">Honeymoon Tanzania Zanzibar</a></li>
-                       
+
                         <li><a href="#">View all sample itineraries</a></li>
                     </ul>
                 </div>
@@ -810,10 +663,10 @@
                     <h4>Travel Information</h4>
                     <ul>
                         <li><a href="#">Tanzania Travel Advice</a></li>
-                     
+
                         <li><a href="#">Tanzania weather</a></li>
                         <li><a href="#">When to visit Tanzania?</a></li>
-                       
+
                         <li><a href="#">Responsible Travel</a></li>
                         <li><a href="#">Travelife Partner Status</a></li>
                         <li><a href="#">View all frequently asked questions</a></li>
@@ -825,7 +678,7 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
-               
+
                         <a href="#"><i class="fab fa-tripadvisor"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
@@ -849,6 +702,49 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Smooth scrolling for sticky nav links
+        document.querySelectorAll('.tour-nav-sticky a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                const offset = 130; // height of mobile header + sticky nav
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Update active state
+                document.querySelectorAll('.tour-nav-sticky a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Intersection Observer for sticky nav highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.tour-nav-sticky a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

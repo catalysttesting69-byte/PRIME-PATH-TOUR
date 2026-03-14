@@ -35,6 +35,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    // ===== NAVBAR HIDE/SHOW ON SCROLL =====
+    const mainHeader = document.getElementById('mainHeader');
+    const heroSection = document.querySelector('.hero-new');
+    let lastScrollTop = 0;
+    let isNavbarHidden = false;
+
+    window.addEventListener('scroll', () => {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Get the hero section height (approximately 100vh or minimum 700px)
+        const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+
+        // If scrolled past hero section
+        if (currentScroll > heroHeight) {
+            // Scrolling down - hide navbar
+            if (currentScroll > lastScrollTop && !isNavbarHidden) {
+                mainHeader.classList.add('navbar-hidden');
+                isNavbarHidden = true;
+            }
+            // Scrolling up - show navbar
+            else if (currentScroll < lastScrollTop && isNavbarHidden) {
+                mainHeader.classList.remove('navbar-hidden');
+                isNavbarHidden = false;
+            }
+        } else {
+            // Always show navbar in hero section
+            mainHeader.classList.remove('navbar-hidden');
+            isNavbarHidden = false;
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+
+
     // ===== DATA =====
     let observer; // declared early so renderTrips can safely reference it
 
@@ -121,56 +155,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const excursions = [
         {
             name: 'Stone Town Tour',
-            image: 'https://images.unsplash.com/photo-1605335804576-9d628d0db4d0?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1621245089855-87bd754f9d68?w=600&h=400&fit=crop',
             category: 'City Tour',
             price: '$35',
             desc: "Explore the winding alleys, historical sites, and vibrant markets of Zanzibar's most historic city."
         },
         {
             name: 'Prison Island',
-            image: 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1550064434-6c3e6dc27cc5?w=600&h=400&fit=crop',
             category: 'Island Trip',
             price: '$45',
             desc: 'Take a boat ride to see the giant Aldabra tortoises and relax on pristine white sand beaches.'
         },
         {
             name: 'Jozani Forest',
-            image: 'https://images.unsplash.com/photo-1504006833117-8886a355efbf?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1540569876033-6e43130d2238?w=600&h=400&fit=crop',
             category: 'Nature',
             price: '$40',
             desc: 'Walk through lush landscapes and spot the rare red colobus monkeys in their natural habitat.'
         },
         {
             name: 'Masingini Forest',
-            image: 'https://images.unsplash.com/photo-1477505982272-bc89bf2ce331?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&h=400&fit=crop',
             category: 'Nature',
             price: '$30',
             desc: 'Discover hidden trails and diverse wildlife in this ancient, peaceful tropical forest reserve.'
         },
         {
             name: 'Kuza Cave',
-            image: 'https://images.unsplash.com/photo-1506129845344-954f2aefbe3c?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1546944062-878f24458f23?w=600&h=400&fit=crop',
             category: 'Adventure',
             price: '$25',
             desc: 'Swim in the crystal-clear, mineral-rich healing waters of this ancient sacred limestone cave.'
         },
         {
             name: 'Turtle Aquarium',
-            image: 'https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=600&h=400&fit=crop',
             category: 'Marine',
             price: '$35',
             desc: 'Feed and swim with rescued sea turtles in a natural lagoon, a truly heartwarming experience.'
         },
         {
             name: 'Horse riding',
-            image: 'https://images.unsplash.com/photo-1553531384-397c80973a0b?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1533036496924-4fbea4078dd2?w=600&h=400&fit=crop',
             category: 'Adventure',
             price: '$60',
             desc: 'Enjoy a magical sunset ride along the pristine white beaches on majestic, well-trained horses.'
         },
         {
             name: 'Quad Biking',
-            image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&h=400&fit=crop',
+            image: 'https://images.unsplash.com/photo-1571401314352-7e5fca067c29?w=600&h=400&fit=crop',
             category: 'Adventure',
             price: '$75',
             desc: 'Embark on an adrenaline-filled off-road adventure through remote villages and rugged landscapes.'
@@ -198,9 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <article class="trip-card reveal" style="transition-delay:${i * .05}s">
         <div class="trip-card-image">
           <img src="${t.image}" alt="${t.title}" loading="lazy">
-          <button class="trip-card-wishlist" data-id="${i}" title="Add to wishlist">
-            <i class="far fa-heart"></i>
-          </button>
         </div>
         <div class="trip-card-body">
           <div class="trip-card-meta">
@@ -253,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.type-pill').forEach(pill => {
         pill.addEventListener('click', () => {
             const filterType = pill.dataset.filter;
-            
+
             // If excursions filter, scroll to excursions section
             if (filterType === 'excursions') {
                 const excursionsSection = document.getElementById('excursions');
@@ -264,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pill.classList.add('active');
                 return;
             }
-            
+
             document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             activeFilter = filterType;
@@ -373,19 +404,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== WISHLIST TOGGLE =====
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.trip-card-wishlist');
-        if (!btn) return;
-        e.preventDefault();
-        btn.classList.toggle('active');
-        const icon = btn.querySelector('i');
-        if (btn.classList.contains('active')) {
-            icon.classList.replace('far', 'fas');
-        } else {
-            icon.classList.replace('fas', 'far');
-        }
-    });
+    // ===== DATE PICKER FUNCTIONALITY =====
+    const datePickerContainer = document.querySelector('.hero-date-picker');
+    const dateInput = document.getElementById('heroArrival');
+
+    if (datePickerContainer && dateInput) {
+        // Allow clicking the entire container/icon to open the picker natively
+        datePickerContainer.addEventListener('click', () => {
+            try {
+                dateInput.showPicker();
+            } catch (err) {
+                dateInput.focus();
+            }
+        });
+
+        dateInput.addEventListener('click', function (e) {
+            // Prevent double triggering if container was also clicked
+            e.stopPropagation();
+            try {
+                this.showPicker();
+            } catch (err) {
+                this.focus();
+            }
+        });
+    }
 
     // ===== ENQUIRY MODAL =====
     const modal = document.getElementById('enquiryModal');
@@ -459,19 +501,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== MOBILE NAV TOGGLE =====
     const mobileToggle = document.getElementById('mobileToggle');
     const navLinks = document.getElementById('navLinks');
+
     if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', () => {
+        // Toggle menu on hamburger click
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileToggle.classList.toggle('active');
             navLinks.classList.toggle('open');
+            document.body.classList.toggle('menu-open');
         });
-        
+
         // Close menu when clicking on nav links
         const navItems = navLinks.querySelectorAll('.nav-item a');
         navItems.forEach(link => {
             link.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
                 navLinks.classList.remove('open');
+                document.body.classList.remove('menu-open');
             });
+        });
+
+        // Close menu when clicking on backdrop (body overlay)
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('open') &&
+                !navLinks.contains(e.target) &&
+                !mobileToggle.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            }
         });
     }
 
