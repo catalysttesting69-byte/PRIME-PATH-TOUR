@@ -349,13 +349,13 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="index.html#tripsSection">Safaris</a></li>
                 <li class="nav-item"><a href="index.html#excursions">Zanzibar Tours</a></li>
                 <li class="nav-item"><a href="about.html" class="active">About Us</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
-                <a href="#" class="btn-make-request">Make a request</a>
+                <a href="contact.html" class="btn-make-request">Make a request</a>
             </div>
         </nav>
     </header>
@@ -555,16 +555,19 @@
                     <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
                         your inbox.</p>
                     <div class="newsletter-wrap">
-                        <input type="email" placeholder="Your email address" class="newsletter-input">
-                        <button class="newsletter-btn">Subscribe</button>
+                        <!-- id="newsletterEmail" and id="newsletterBtn" used by subscribe JS below -->
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" class="newsletter-input" autocomplete="email">
+                        <button class="newsletter-btn" id="newsletterBtn">Subscribe</button>
                     </div>
+                    <!-- Subscribe result message (shown by JS) -->
+                    <p id="newsletterMsg" style="font-size:13px;margin-top:8px;min-height:18px;"></p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-links">
                     <a href="#">Terms and conditions</a>
                     <a href="#">Privacy policy</a>
-                    <a href="#">Contact</a>
+                    <a href="contact.html">Contact</a>
                 </div>
                 <p>© 2026 PrimePath Tours & Safaris</p>
             </div>

@@ -33,13 +33,13 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="#tripsSection">Safaris</a></li>
                 <li class="nav-item"><a href="#excursions">Zanzibar Tours</a></li>
                 <li class="nav-item"><a href="about.html">About Us</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
-                <a href="#" class="btn-make-request">Make a request</a>
+                <a href="contact.html" class="btn-make-request">Make a request</a>
             </div>
         </nav>
     </header>
@@ -336,45 +336,21 @@
     <!-- ===== REVIEWS ===== -->
     <section class="reviews-section">
         <div class="container">
-            <h2 class="section-heading text-center">Zanzibar holiday reviews</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-quote">"Zanzibar is a fantastic, beautiful island. I stayed in the village
-                        Jambiani and the Zanzibari (local people) are so friendly and welcoming. They are always up for
-                        a chat. The beaches, spice farms, forests and little villages are so beautiful."
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">R</div>
-                        <div>
-                            <span class="review-name">Roos</span>
-                            <div class="review-location">via TripAdvisor</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-quote">"Zanzibar is a great beach destination you don't want to miss when you
-                        visit Tanzania. It is a paradise and the perfect place to end your safari. We stayed at the
-                        eastcoast of the island where you can find amazing beaches."
-                    </div>
-                    <div class="review-author">
-                        <div class="review-avatar">W</div>
-                        <div>
-                            <span class="review-name">Wouter</span>
-                            <div class="review-location">via TripAdvisor</div>
-                        </div>
-                    </div>
+            <div class="reviews-header text-center">
+                <span class="reviews-eyebrow">TRUSTED BY TRAVELERS</span>
+                <h2 class="section-heading">Stories From Our Community</h2>
+                <p class="section-sub">Real experiences from those who explored Tanzania with us.</p>
+                <div class="reviews-trust-badges">
+                    <div class="trust-badge"><img src="https://www.vectorlogo.zone/logos/tripadvisor/tripadvisor-ar21.svg" alt="Tripadvisor"> <span>4.9/5 Rating</span></div>
+                    <div class="trust-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google"> <span>4.8/5 Rating</span></div>
                 </div>
             </div>
-            <p class="reviews-more">More reviews? Find all reviews on <a href="#" class="link-green">PrimePath
-                    Tripadvisor</a>!</p>
+            
+            <div class="reviews-masonry-wrapper">
+                <div class="reviews-grid-dynamic" id="reviewsGrid">
+                    <!-- JS renders review cards -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -444,16 +420,19 @@
                     <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
                         your inbox.</p>
                     <div class="newsletter-wrap">
-                        <input type="email" placeholder="Your email address" class="newsletter-input">
-                        <button class="newsletter-btn">Subscribe</button>
+                        <!-- id="newsletterEmail" and id="newsletterBtn" used by subscribe JS below -->
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" class="newsletter-input" autocomplete="email">
+                        <button class="newsletter-btn" id="newsletterBtn">Subscribe</button>
                     </div>
+                    <!-- Subscribe result message (shown by JS) -->
+                    <p id="newsletterMsg" style="font-size:13px;margin-top:8px;min-height:18px;"></p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-links">
                     <a href="#">Terms and conditions</a>
                     <a href="#">Privacy policy</a>
-                    <a href="#">Contact</a>
+                    <a href="contact.html">Contact</a>
                 </div>
                 <p>© 2026 PrimePath Tours & Safaris</p>
             </div>
@@ -481,11 +460,11 @@
                 <div class="modal-row">
                     <div class="modal-field">
                         <label for="mName">Full Name *</label>
-                        <input type="text" id="mName" placeholder="Your full name" required>
+                        <input type="text" id="mName" placeholder="Your full name" required autocomplete="name">
                     </div>
                     <div class="modal-field">
                         <label for="mEmail">Email *</label>
-                        <input type="email" id="mEmail" placeholder="your@email.com" required>
+                        <input type="email" id="mEmail" placeholder="your@email.com" required autocomplete="email">
                     </div>
                 </div>
                 <div class="modal-row">
@@ -523,7 +502,8 @@
                     <textarea id="mMessage" rows="3"
                         placeholder="Any special requests, interests, or questions..."></textarea>
                 </div>
-                <button type="submit" class="modal-submit-btn">Send My Enquiry &rarr;</button>
+                <!-- id="modalSubmitBtn" targeted by JS to show loading state -->
+                <button type="submit" class="modal-submit-btn" id="modalSubmitBtn">Send My Enquiry &rarr;</button>
                 <p class="modal-disclaimer">No strings attached &mdash; no cost, no commitment.</p>
             </form>
             <div class="modal-success" id="modalSuccess">
@@ -538,6 +518,69 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+    /**
+     * =====================================================================
+     * Modal Enquiry Form Handler
+     * Submits the homepage enquiry modal to /api/book.php.
+     * On success shows the existing #modalSuccess panel.
+     * =====================================================================
+     */
+    (function () {
+        'use strict';
+        const form      = document.getElementById('enquiryForm');
+        const submitBtn = document.getElementById('modalSubmitBtn');
+        const success   = document.getElementById('modalSuccess');
+
+        if (!form) return;
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name  = document.getElementById('mName').value.trim();
+            const email = document.getElementById('mEmail').value.trim();
+
+            if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter your name and a valid email address.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+
+            const adults   = parseInt(document.getElementById('mAdults').value)   || 2;
+            const children = parseInt(document.getElementById('mChildren').value) || 0;
+            const payload  = {
+                name,
+                email,
+                tour_name:  document.getElementById('mTripType').value,
+                num_people: adults + children,
+                message:    document.getElementById('mMessage').value.trim(),
+            };
+
+            try {
+                const res  = await fetch('api/book.php', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify(payload),
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    form.style.display = 'none';
+                    if (success) success.style.display = 'flex';
+                } else {
+                    alert(data.message || 'Something went wrong. Please try again.');
+                }
+            } catch (err) {
+                alert('Could not connect. Please try WhatsApp instead.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send My Enquiry \u2192';
+            }
+        });
+    })();
+    </script>
 </body>
 
 </html>

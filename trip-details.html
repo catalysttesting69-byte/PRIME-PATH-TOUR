@@ -112,14 +112,15 @@
             justify-content: center;
             gap: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-            font-family: 'Outfit', sans-serif;
+            font-family: var(--font, 'Montserrat', sans-serif);
         }
 
         .tour-nav-sticky a {
             text-decoration: none;
             color: var(--gray);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 13.5px;
+            letter-spacing: 0.3px;
             transition: color 0.3s ease;
             position: relative;
         }
@@ -145,7 +146,7 @@
             margin: 60px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 380px;
+            grid-template-columns: 1fr 320px;
             gap: 60px;
         }
 
@@ -281,22 +282,22 @@
         .luxury-booking-card {
             background: var(--luxury-dark);
             color: var(--white);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .card-price-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.7;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .card-price {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             display: block;
         }
 
@@ -312,19 +313,19 @@
             background: var(--luxury-gold);
             color: var(--luxury-dark);
             text-align: center;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             transition: all 0.3s ease;
         }
 
         .luxury-btn:hover {
             background: var(--white);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .feature-list {
@@ -336,9 +337,9 @@
         .feature-list li {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
@@ -394,13 +395,13 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="#">Safaris</a></li>
+                <li class="nav-item"><a href="index.html#tripsSection">Safaris</a></li>
                 <li class="nav-item"><a href="index.html#excursions" class="active">Zanzibar Tours</a></li>
                 <li class="nav-item"><a href="about.html">About Us</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="nav-icon-btn" title="Search"><i class="fas fa-search"></i></button>
-                <a href="#" class="btn-make-request">Make a request</a>
+                <a href="contact.html" class="btn-make-request">Make a request</a>
             </div>
         </nav>
     </header>
@@ -585,9 +586,9 @@
                 <div class="luxury-booking-card">
                     <span class="card-price-label">Exclusive Rate</span>
                     <strong class="card-price">$1,250<span>p.p.</span></strong>
-                    <a href="#" class="luxury-btn">Plan This Journey</a>
+                    <a href="contact.html" class="luxury-btn">Plan This Journey</a>
 
-                    <h4 style="margin-bottom: 20px; color: var(--luxury-gold);">What's Included</h4>
+                    <h4 style="margin-bottom: 15px; color: var(--luxury-gold);">What's Included</h4>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> VIP Airport Transfers</li>
                         <li><i class="fas fa-check"></i> Premium Boutique Stays</li>
@@ -597,7 +598,7 @@
                         <li><i class="fas fa-check"></i> Mineral Water Daily</li>
                     </ul>
 
-                    <div style="margin-top: 40px; font-size: 0.85rem; opacity: 0.6; text-align: center;">
+                    <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6; text-align: center;">
                         Free cancellation up to 30 days before arrival.
                     </div>
                 </div>
@@ -669,8 +670,8 @@
                     <p class="newsletter-label">Receive travel ideas, destination guides, and inspiration directly in
                         your inbox.</p>
                     <div class="newsletter-wrap">
-                        <input type="email" placeholder="Your email address" class="newsletter-input">
-                        <button class="newsletter-btn">Subscribe</button>
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" class="newsletter-input" autocomplete="email">
+                        <button class="newsletter-btn" id="newsletterBtn">Subscribe</button>
                     </div>
                 </div>
             </div>

@@ -72,58 +72,53 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===== DATA =====
     let observer; // declared early so renderTrips can safely reference it
 
-    const trips = [
-        {
-            title: '6 Days 5 Nights Zanzibar Discovery Tour Package',
-            url: 'trip-details.html',
-            image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=640&h=420&fit=crop',
-            price: '$1,250', priceNum: 1250,
-            priceLabel: 'from',
-            highlights: ['Stone Town & Spice Farms', 'Mnemba Snorkeling & Turtles'],
-            route: [{ name: '5 nights Zanzibar', multi: true }],
-            type: 'zanzibar'
-        },
-        {
-            title: '7 Days 6 Nights Zanzibar Discovery Experience',
-            url: 'trip-details-7-days.html',
-            image: 'https://images.unsplash.com/photo-1544551763-8dd44758c2dd?w=640&h=420&fit=crop',
-            price: '$1,450', priceNum: 1450,
-            priceLabel: 'from',
-            highlights: ['Nakupenda & Prison Island', 'Safari Blue Experience'],
-            route: [{ name: '6 nights Zanzibar', multi: true }],
-            type: 'zanzibar'
-        },
-        {
-            title: '8-Day Tanzania Great Migration Safari',
-            url: 'trip-details-8-days.html',
-            image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=640&h=420&fit=crop',
-            price: '$3,950', priceNum: 3950,
-            priceLabel: 'from',
-            highlights: ['Ngorongoro Crater', 'Great Wildebeest Migration Spectacle'],
-            route: ['Arusha', 'Tarangire', { name: '3 days Serengeti', multi: true }, 'Ngorongoro'],
-            type: 'safari'
-        },
-        {
-            title: '10-Day Tanzania Big Five & Cultural Safari',
-            url: 'trip-details-10-days.html',
-            image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=640&h=420&fit=crop',
-            price: '$4,500', priceNum: 4500,
-            priceLabel: 'from',
-            highlights: ['Mto wa Mbu Village', 'Tarangire & Serengeti'],
-            route: ['Arusha', 'Lake Manyara', { name: '3 days Serengeti', multi: true }, 'Ngorongoro', { name: '2 days Tarangire', multi: true }],
-            type: 'safari'
-        },
-        {
-            title: '12 Days Tanzania Safari & Zanzibar Beach Holiday Escape',
-            url: 'trip-details-12-days.html',
-            image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=640&h=420&fit=crop',
-            price: '$5,250', priceNum: 5250,
-            priceLabel: 'from',
-            highlights: ['Romantic Honeymoon', 'Serengeti & Zanzibar'],
-            route: ['Arusha', 'Tarangire', 'Lake Manyara', { name: '3 days Serengeti', multi: true }, 'Ngorongoro', { name: '5 days Zanzibar', multi: true }],
-            type: 'combined'
+    let trips = [];
+    let excursionsData = [];
+
+    async function fetchTrips() {
+        try {
+            const response = await fetch('api/get_all_trips.php');
+            const data = await response.json();
+            if (data.success) {
+                // Separate packages (trips) from excursions
+                const allData = data.trips;
+                trips = allData.filter(t => t.type !== 'excursions');
+                
+                excursionsData = allData.filter(t => t.type === 'excursions').map(t => ({
+                    name: t.title,
+                    image: t.image,
+                    category: t.highlights && t.highlights.length ? t.highlights[0] : 'General',
+                    price: t.price,
+                    desc: t.description || ''
+                }));
+                
+                renderTrips(getFilteredSorted());
+                updatePillCounts();
+                renderExcursionsGrid();
+            }
+        } catch (err) {
+            console.error("Error fetching trips:", err);
         }
-    ];
+    }
+
+    function updatePillCounts() {
+        const counts = {
+            all: trips.length,
+            zanzibar: trips.filter(t => t.type === 'zanzibar').length,
+            safari: trips.filter(t => t.type === 'safari').length,
+            combined: trips.filter(t => t.type === 'combined').length
+        };
+
+        document.querySelectorAll('.type-pill').forEach(pill => {
+            const filter = pill.dataset.filter;
+            if (filter === 'excursions') return; // Skip excursions pill for counts
+            
+            const countSpan = pill.querySelector('.pill-count');
+            if (countSpan && counts[filter] !== undefined) {
+                countSpan.textContent = counts[filter];
+            }
+        });
+    }
 
     const lodges = [
         {
@@ -152,68 +147,110 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    const excursions = [
+    // Old excursions array removed - now using excursionsData merged into trips
+
+    const reviews = [
         {
-            name: 'Stone Town Tour',
-            image: 'https://images.unsplash.com/photo-1621245089855-87bd754f9d68?w=600&h=400&fit=crop',
-            category: 'City Tour',
-            price: '$35',
-            desc: "Explore the winding alleys, historical sites, and vibrant markets of Zanzibar's most historic city."
+            name: "Sarah Jenkins",
+            location: "London, UK",
+            source: "google",
+            rating: 5,
+            quote: "An absolute dream! Our 10-day safari was perfectly organized. Our guide, Joseph, was incredible at spotting the Big 5. Highly recommend PrimePath!",
+            date: "2 weeks ago"
         },
         {
-            name: 'Prison Island',
-            image: 'https://images.unsplash.com/photo-1550064434-6c3e6dc27cc5?w=600&h=400&fit=crop',
-            category: 'Island Trip',
-            price: '$45',
-            desc: 'Take a boat ride to see the giant Aldabra tortoises and relax on pristine white sand beaches.'
+            name: "Markus Weber",
+            location: "Munich, Germany",
+            source: "tripadvisor",
+            rating: 5,
+            quote: "Zanzibar part of the trip was pure bliss. The Nungwi beach is stunning. PrimePath's local knowledge really shows. Everything was seamless.",
+            date: "1 month ago"
         },
         {
-            name: 'Jozani Forest',
-            image: 'https://images.unsplash.com/photo-1540569876033-6e43130d2238?w=600&h=400&fit=crop',
-            category: 'Nature',
-            price: '$40',
-            desc: 'Walk through lush landscapes and spot the rare red colobus monkeys in their natural habitat.'
+            name: "Elena Rodriguez",
+            location: "Madrid, Spain",
+            source: "google",
+            rating: 5,
+            quote: "Stone Town tour was fascinating. The spice farm visit was also a highlight for our kids. Very professional and friendly staff.",
+            date: "3 days ago"
         },
         {
-            name: 'Masingini Forest',
-            image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&h=400&fit=crop',
-            category: 'Nature',
-            price: '$30',
-            desc: 'Discover hidden trails and diverse wildlife in this ancient, peaceful tropical forest reserve.'
+            name: "David Thompson",
+            location: "New York, USA",
+            source: "tripadvisor",
+            rating: 4,
+            quote: "Serengeti was breath-taking. The Great Migration is something everyone should see once. Accommodations exceeded our expectations.",
+            date: "2 months ago"
         },
         {
-            name: 'Kuza Cave',
-            image: 'https://images.unsplash.com/photo-1546944062-878f24458f23?w=600&h=400&fit=crop',
-            category: 'Adventure',
-            price: '$25',
-            desc: 'Swim in the crystal-clear, mineral-rich healing waters of this ancient sacred limestone cave.'
+            name: "Sophie Bennett",
+            location: "Sydney, Australia",
+            source: "google",
+            rating: 5,
+            quote: "Best vacation ever. We loved the mixture of adventure and relaxation. The horses at the beach ride was a magical experience at sunset.",
+            date: "1 week ago"
         },
         {
-            name: 'Turtle Aquarium',
-            image: 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=600&h=400&fit=crop',
-            category: 'Marine',
-            price: '$35',
-            desc: 'Feed and swim with rescued sea turtles in a natural lagoon, a truly heartwarming experience.'
+            name: "Jan De Vries",
+            location: "Amsterdam, Netherlands",
+            source: "tripadvisor",
+            rating: 5,
+            quote: "Fantastische ervaring! De gidsen zijn erg deskundig. We hebben zoveel geleerd over de lokale cultuur en natuur. Bedankt PrimePath!",
+            date: "3 weeks ago"
         },
         {
-            name: 'Horse riding',
-            image: 'https://images.unsplash.com/photo-1533036496924-4fbea4078dd2?w=600&h=400&fit=crop',
-            category: 'Adventure',
-            price: '$60',
-            desc: 'Enjoy a magical sunset ride along the pristine white beaches on majestic, well-trained horses.'
+            name: "Claire Dubois",
+            location: "Paris, France",
+            source: "google",
+            rating: 5,
+            quote: "Une expérience inoubliable. Le cratère du Ngorongoro est un paradis sur terre. Le service était irréprochable du début à la fin.",
+            date: "5 days ago"
         },
         {
-            name: 'Quad Biking',
-            image: 'https://images.unsplash.com/photo-1571401314352-7e5fca067c29?w=600&h=400&fit=crop',
-            category: 'Adventure',
-            price: '$75',
-            desc: 'Embark on an adrenaline-filled off-road adventure through remote villages and rugged landscapes.'
+            name: "James Wilson",
+            location: "Toronto, Canada",
+            source: "tripadvisor",
+            rating: 5,
+            quote: "Prison Island and the giant tortoises were amazing. Perfect for a family outing. PrimePath handles all the logistics so you can just enjoy.",
+            date: "1 month ago"
+        },
+        {
+            name: "Ami Suzuki",
+            location: "Tokyo, Japan",
+            source: "google",
+            rating: 5,
+            quote: "The snorkeling trip to Mnemba Atoll was like swimming in an aquarium. So many colorful fish and even saw dolphins! Amazing day.",
+            date: "2 weeks ago"
+        },
+        {
+            name: "Robert Miller",
+            location: "Cape Town, SA",
+            source: "google",
+            rating: 4,
+            quote: "Great value for money. The 6-day discovery package covered all the essentials. Efficient communication and great local guides.",
+            date: "1 month ago"
+        },
+        {
+            name: "Lisa Anderson",
+            location: "Stockholm, Sweden",
+            source: "tripadvisor",
+            rating: 5,
+            quote: "We spent our honeymoon with PrimePath and couldn't be happier. They added so many special touches that made it extra romantic.",
+            date: "2 months ago"
+        },
+        {
+            name: "Thomas Mueller",
+            location: "Berlin, Germany",
+            source: "google",
+            rating: 5,
+            quote: "Super Organisation! Alles hat perfekt geklappt. Die Transfers waren pünktlich und die Lodges waren einfach traumhaft.",
+            date: "3 weeks ago"
         }
     ];
 
 
 
-    // ===== RENDER TRIPS =====
+    // ===== RENDER TRIPS FUNCTION =====
     const tripContainer = document.getElementById('tripContainer');
     const emptyMsg = document.getElementById('tripsEmptyMsg');
 
@@ -262,6 +299,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ===== SCROLL REVEAL ANIMATIONS =====
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up, .reveal').forEach(el => observer.observe(el));
+
+    // Initialize data
+    fetchTrips();
+
     let activeFilter = 'all';
 
     function getFilteredSorted() {
@@ -278,21 +330,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return data;
     }
 
-    renderTrips(trips);
-
     // Filter pills
     document.querySelectorAll('.type-pill').forEach(pill => {
         pill.addEventListener('click', () => {
             const filterType = pill.dataset.filter;
 
-            // If excursions filter, scroll to excursions section
             if (filterType === 'excursions') {
                 const excursionsSection = document.getElementById('excursions');
                 if (excursionsSection) {
                     excursionsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-                document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
                 return;
             }
 
@@ -300,6 +347,11 @@ document.addEventListener('DOMContentLoaded', () => {
             pill.classList.add('active');
             activeFilter = filterType;
             renderTrips(getFilteredSorted());
+
+            const tripsSection = document.getElementById('tripsSection');
+            if (tripsSection) {
+                tripsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 
@@ -339,27 +391,99 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ===== RENDER EXCURSIONS =====
-    const excursionsGrid = document.getElementById('excursionsGrid');
-    if (excursionsGrid) {
-        excursionsGrid.innerHTML = excursions.map((e, i) => `
-      <div class="excursion-card reveal" style="transition-delay:${i * .06}s">
-        <div class="excursion-card-image">
-          <img src="${e.image}" alt="${e.name}" loading="lazy">
-          <span class="excursion-badge">${e.category}</span>
-        </div>
-        <div class="excursion-card-body">
-          <div class="excursion-meta">
-            <span class="excursion-price">from <strong>${e.price}</strong></span>
-          </div>
-          <h3>${e.name}</h3>
-          <p class="excursion-desc">${e.desc}</p>
-          <div class="excursion-footer">
-            <button class="excursion-enquire-btn" data-open-enquiry>Enquire <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
-    `).join('');
+    function renderExcursionsGrid() {
+        const excursionsGrid = document.getElementById('excursionsGrid');
+        if (excursionsGrid) {
+            excursionsGrid.innerHTML = excursionsData.map((e, i) => `
+                <div class="excursion-card reveal" style="transition-delay:${i * .06}s">
+                    <div class="excursion-card-image">
+                        <img src="${e.image}" alt="${e.name}" loading="lazy">
+                        <span class="excursion-badge">${e.category}</span>
+                    </div>
+                    <div class="excursion-card-body">
+                        <div class="excursion-meta">
+                            <span class="excursion-price">from <strong>${e.price}</strong></span>
+                        </div>
+                        <h3>${e.name}</h3>
+                        <p class="excursion-desc">${e.desc}</p>
+                        <div class="excursion-footer">
+                            <button class="excursion-enquire-btn" data-open-enquiry>Enquire <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Re-observe the new excursion cards
+            if (observer) {
+                document.querySelectorAll('.excursion-card.reveal:not(.visible)').forEach(el => observer.observe(el));
+            }
+        }
     }
+
+    // ===== RENDER REVIEWS (SLIDING) =====
+    const reviewsGrid = document.getElementById('reviewsGrid');
+    if (reviewsGrid) {
+        // Shuffle reviews for variety
+        let shuffled = [...reviews].sort(() => 0.5 - Math.random());
+        
+        // Render all shuffled reviews into the flex track
+        reviewsGrid.innerHTML = shuffled.map((r, i) => `
+            <div class="review-card">
+                <div class="review-source-icon">
+                    <img src="${r.source === 'google' ? 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg' : 'https://www.vectorlogo.zone/logos/tripadvisor/tripadvisor-icon.svg'}" alt="${r.source}">
+                </div>
+                <div class="review-stars">
+                    ${Array(r.rating).fill('<i class="fa-solid fa-star"></i>').join('')}${Array(5 - r.rating).fill('<i class="fa-regular fa-star" style="opacity:0.3"></i>').join('')}
+                </div>
+                <div class="review-quote">"${r.quote}"</div>
+                <div class="review-author">
+                    <img src="https://i.pravatar.cc/100?u=${encodeURIComponent(r.name)}" alt="${r.name}" class="review-avatar">
+                    <div class="review-info">
+                        <span class="review-name">${r.name}</span>
+                        <span class="review-meta">${r.location} • ${r.date}</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        let reviewIndex = 0;
+        const totalReviews = shuffled.length;
+        
+        function slideReviews() {
+            // How many items are visible? (CSS: Desktop 3, Tablet 2, Mobile 1)
+            const visibleCount = window.innerWidth > 992 ? 3 : (window.innerWidth > 600 ? 2 : 1);
+            
+            // Increment index
+            reviewIndex++;
+            
+            // If we've reached the end of possible slides
+            if (reviewIndex > totalReviews - visibleCount) {
+                reviewIndex = 0; // Loop back
+            }
+            
+            // Calculate movement percentage correctly based on flex layout
+            const gap = 25; // gap: 25px in CSS
+            const containerWidth = reviewsGrid.parentElement.offsetWidth;
+            const itemWidth = (containerWidth - (gap * (visibleCount - 1))) / visibleCount;
+            const moveAmount = reviewIndex * (itemWidth + gap);
+            
+            reviewsGrid.style.transform = `translateX(-${moveAmount}px)`;
+        }
+
+        // Start auto-slide every 5 seconds
+        let reviewTimer = setInterval(slideReviews, 5000);
+
+        // Optional: Pause on hover
+        reviewsGrid.addEventListener('mouseenter', () => clearInterval(reviewTimer));
+        reviewsGrid.addEventListener('mouseleave', () => reviewTimer = setInterval(slideReviews, 5000));
+        
+        // Handle window resize to avoid broken offsets
+        window.addEventListener('resize', () => {
+             reviewIndex = 0;
+             reviewsGrid.style.transform = `translateX(0)`;
+        });
+    }
+
 
     // Custom Hero Dropdown
     const heroTripDropdown = document.getElementById('heroTripTypeDropdown');
@@ -484,19 +608,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('modalCloseSuccess')?.addEventListener('click', closeModal);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    document.getElementById('enquiryForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('mName')?.value.trim();
-        const email = document.getElementById('mEmail')?.value.trim();
-        if (!name || !email) {
-            alert('Please fill in your name and email.');
-            return;
-        }
-        const form = document.getElementById('enquiryForm');
-        const success = document.getElementById('modalSuccess');
-        if (form) form.style.display = 'none';
-        if (success) success.style.display = 'flex';
-    });
+    // NOTE: The enquiry modal submit handler lives in the inline <script> on index.html.
+    // It sends the form data to /api/book.php via fetch() and shows #modalSuccess on success.
+    // DO NOT add a second handler here — duplicate handlers cause a conflict.
 
     // ===== MOBILE NAV TOGGLE =====
     const mobileToggle = document.getElementById('mobileToggle');
@@ -562,4 +676,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.12 });
 
     document.querySelectorAll('.fade-up, .reveal').forEach(el => observer.observe(el));
+
+
+    // ===== GLOBAL NEWSLETTER SUBSCRIBE =====
+    // Uses class selectors so it works on every page (index, trip-details, about, etc.)
+    // The newsletter form in each footer just needs .newsletter-input and .newsletter-btn classes.
+    (function () {
+        'use strict';
+        const emailInput = document.querySelector('.newsletter-input');
+        const btn        = document.querySelector('.newsletter-btn');
+        const msg        = document.getElementById('newsletterMsg');
+
+        if (!btn || !emailInput) return;
+
+        btn.addEventListener('click', async function () {
+            const email = emailInput.value.trim();
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                if (msg) { msg.style.color = '#dc3545'; msg.textContent = 'Please enter a valid email address.'; }
+                else { alert('Please enter a valid email address.'); }
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = '...';
+            if (msg) msg.textContent = '';
+
+            try {
+                const res  = await fetch('api/subscribe.php', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify({ email }),
+                });
+                const data = await res.json();
+                if (msg) {
+                    msg.style.color = data.success ? '#2d6a4f' : '#dc3545';
+                    msg.textContent = data.message;
+                } else {
+                    alert(data.message);
+                }
+                if (data.success) emailInput.value = '';
+            } catch (e) {
+                const errMsg = 'Connection error. Please try again.';
+                if (msg) { msg.style.color = '#dc3545'; msg.textContent = errMsg; }
+                else { alert(errMsg); }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            }
+        });
+    })();
 });
